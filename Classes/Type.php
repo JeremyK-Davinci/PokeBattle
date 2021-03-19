@@ -36,57 +36,57 @@
 
     array_push($Types,
      
-        //Fire-Type
+        //1. Fire-Type
         new Type('Fire', 'Bug-Steel-Fire-Grass-Ice-Fairy', 'Ground-Rock-Water', ''),
 
-        //Water-Type
+        //2. Water-Type
         new Type('Water', 'Steel-Fire-Water-Ice', 'Grass-Electric', ''),    
 
-        //Grass-Type
+        //3. Grass-Type
         new Type('Grass', 'Ground-Water-Grass-Electric', 'Flying-Poison-Bug-Fire-Ice', ''),  
         
-        //Electric-Type
+        //4. Electric-Type
         new Type('Electric', 'Flying-Steel-Electric', 'Ground', ''), 
 
-        //Normal-Type
+        //5. Normal-Type
         new Type('Normal', '', 'Fighting', 'Ghost'),   
 
-        //Fighting-Type
+        //6. Fighting-Type
         new Type('Fighting', 'Rock-Bug-Dark', 'Flying-Psychic-Fairy', ''), 
 
-        //Flying-Type
+        //7. Flying-Type
         new Type('Flying', 'Fighting-Bug-Grass', 'Rock-Electric-Ice', 'Ground'),   
 
-        //Poison-Type
+        //8. Poison-Type
         new Type('Poison', 'Fighting-Poison-Bug-Grass-Fairy', 'Ground-Psychic', ''), 
         
-        //Ground-Type
+        //9. Ground-Type
         new Type('Ground', 'Poison-Rock', 'Water-Grass-Ice', 'Electric'),   
 
-        //Rock-Type
+        //10. Rock-Type
         new Type('Rock', 'Normal-Flying-Poison-Fire', 'Fighting-Ground-Steel-Water-Grass', ''),
         
-        //Bug-Type
+        //11. Bug-Type
         new Type('Bug', 'Fighting-Ground-Grass', 'Flying-Rock-Fire', ''), 
         
-        //Ghost-Type
+        //12. Ghost-Type
         new Type('Ghost', 'Poison-Bug', 'Ghost-Dark', 'Normal-Fighting'), 
         
-        //Steel-Type
+        //13. Steel-Type
         new Type('Steel', 'Normal-Flying-Rock-Bug-Steel-Grass-Psychic-Ice-Dragon-Fairy', 'Fighting-Ground-Fire', 'Poison'),    
         
-        //Psychic-Type
+        //14. Psychic-Type
         new Type('Psychic', 'Fighting-Psychic', 'Bug-Ghost-Dark', ''), 
 
-        //Ice-Type 
+        //15. Ice-Type 
         new Type('Ice', 'Ice', 'Fighting-Rock-Steel-Fire', ''),   
         
-        //Dragon-Type
+        //16. Dragon-Type
         new Type('Dragon', 'Fire-Water-Grass-Electric', 'Ice-Dragon-Fairy', ''), 
         
-        //Dark-Type
+        //17. Dark-Type
         new Type('Dark', 'Ghost-Dark', 'Fighting-Bug-Fairy', 'Psychic'),
         
-        //Fairy-Type
+        //18. Fairy-Type
         new Type('Fairy', 'Fighting-Bug-Dark', 'Poison-Steel', 'Dragon')     
     );
