@@ -2,7 +2,8 @@
     class Pokemon{
         public $name;
         public $type;
-        public $hitpoints;
+        public $hitPoints;
+        public $maxHitpoints;
         public $baseHitPoints;
         public $level;
         public $attacks;
@@ -14,12 +15,23 @@
             $this->type = $type;
             $this->baseHitPoints = $baseHitPoints;
             $this->level = $level;
-            $this->hitpoints = $this->calculateHitPoints();
+            $this->hitPoints = $this->calculateHitPoints();
+            $this->maxHitPoints = $this->hitPoints;
             $this->attacks = $attacks;
         }
 
         public function __toString(){
             return json_encode($this);
+        }
+
+        public function __getTypeFromMyId(){
+            return $Types[$this->type];
+        }
+
+        public function __calculateNewHitPoints(){
+            $increment = rand(1, 3);
+            $this->hitPoints += $increment;
+            $this->maxHitPoints = $this->hitPoints;
         }
 
         function calculateHitPoints(){

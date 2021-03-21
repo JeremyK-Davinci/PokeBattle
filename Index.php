@@ -9,7 +9,7 @@
     $Lick = new Attack('Lick', '10', $Types[11]);
     print_r('<pre>'.$Lick.'</pre>');*/
 
-    $pikachu = new Pokemon('Pikachu', $Types[3], 35, 5, [new Attack('Quik Attack', 40, $Types[4]), new Attack('Tail Whip', 0, $Types[4]), new Attack('Thunder Wave', 0, $Types[3])]);
+    //$pikachu = new Pokemon('Pikachu', $Types[3], 35, 5, [new Attack('Quik Attack', 40, $Types[4]), new Attack('Tail Whip', 0, $Types[4]), new Attack('Thunder Wave', 0, $Types[3])]);
     /*print_r('<pre>'.$pikachu.'</pre>');
 
     $type = $Types[4];
