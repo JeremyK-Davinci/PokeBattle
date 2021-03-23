@@ -22,3 +22,12 @@
                 <button type='button' class='btn btn-outline-light btnJoin mb-2' value=" . $roomId . ">Join</button>
             </div>";
     }
+
+    function getInfoFromUserId($id){
+        $conn = openConnection();
+        $query = $conn->prepare("SELECT * FROM users WHERE id=:id");
+        $query->bindParam(":id", $id);
+        $query->execute();
+        $result = $query->fetchAll();
+        return $result;
+    }

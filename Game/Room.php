@@ -11,8 +11,8 @@
     $baseImageLinkFront = "https://img.pokemondb.net/sprites/black-white/anim/normal/%s.gif";
     $baseImageLinkBack = "https://img.pokemondb.net/sprites/black-white/anim/back-normal/%s.gif";
 
-    $myPokemon = new Pokemon('Pikachu', $Types[3], 35, 5, [new Attack('Quik Attack', 40, $Types[4]), new Attack('Tail Whip', 0, $Types[4]), new Attack('Thunder Wave', 0, $Types[3])]);
-    $enemyPokemon = new Pokemon('Squirtle', $Types[1], 44, 5, [new Attack('Tackle', 40, $Types[4]), new Attack('Tail Whip', 0, $Types[4]), new Attack('Water Gun', 40, $Types[1])]);
+    $myPokemon = new Pokemon('Pikachu', $Types[3], 35, 5, [new Attack('Quik Attack', 40, $Types[4], 4), new Attack('Tail Whip', 0, $Types[4], 1), new Attack('Thunder Wave', 0, $Types[3], 1)]);
+    $enemyPokemon = new Pokemon('Squirtle', $Types[1], 44, 5, [new Attack('Tackle', 40, $Types[4], 1), new Attack('Tail Whip', 0, $Types[4], 1), new Attack('Water Gun', 40, $Types[1], 1)]);
 ?>
 
 <div id="game-container" class="col-12">

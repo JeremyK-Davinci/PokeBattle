@@ -7,6 +7,7 @@
 <div class="errorDisplay fixed-top mt-5 w-100 text-white bg-danger text-center"></div>
 <div class="headContainer col-12">
     <h1 class="text-center text-light title"></h1>
+    <button class="btn btn-outline-light float-right btnNewRoom">+ New Room</button>
 </div>
 <div class="container"></div>
 

@@ -29,7 +29,7 @@
             <input class="form-control" type="password" name="registerPassConfirm" pattern=".{8,}" required>
         </div>
         <div class="form-group text-center">
-            <input class="btn btn-outline-light col-8 col-lg-6 rounded btnRegister" type="button" name="register" value="Register">
+            <input class="btn btn-outline-light col-8 col-lg-6 rounded btnRegister" type="submit" name="register" value="Register">
         </div>
     </form>
 </div>

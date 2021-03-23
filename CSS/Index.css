@@ -2,7 +2,6 @@
     padding: 0;
     margin: 0;
 }
-
 body{
     margin: 0;
     overflow: hidden;
@@ -39,6 +38,32 @@ progress::-moz-progress-bar {
 .form-container{
     margin-top: 10%;
     margin-bottom: 5%;
+}
+
+.btnNewRoom{
+    margin-top: -1.75%;
+}
+
+.passwordUpdateOverlay{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.passwordUpdateContainer{
+    top: 7.5%;
+}
+
+.btnCloseOverlay{
+    position: fixed;
+    top: 2.5%;
+    right: 2.5%;
+    color: gainsboro;
+}
+.btnCloseOverlay:hover{
+    color: white;
 }
 
 #game-container{
@@ -219,6 +244,13 @@ progress::-moz-progress-bar {
 }
 .Fairy:hover{
     background-color: #F1A9F1;
+}
+
+@media (min-width: 1600px){
+    .flex-xxl-row{
+        -ms-flex-direction: row!important;
+        flex-direction: row!important;
+    }
 }
 
 @media (min-width: 1080px){

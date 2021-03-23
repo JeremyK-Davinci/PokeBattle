@@ -28,6 +28,7 @@
             $_SESSION['signedIn'] = true;
             $_SESSION['userId'] = $result[0]['id'];
             $_SESSION['username'] = $result[0]['username'];
+            $_SESSION['mail'] = $result[0]['mail'];
             session_write_close();
             $conn = null;
             echo "success";
