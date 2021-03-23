@@ -66,6 +66,11 @@ progress::-moz-progress-bar {
     color: white;
 }
 
+.img-Pokemon{
+    width: 4rem;
+    height: 4rem;
+}
+
 #game-container{
     /*display: none;*/
 }

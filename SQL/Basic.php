@@ -23,11 +23,20 @@
             </div>";
     }
 
+    function getPokemonFromUser($userId){
+        $conn = openConnection();
+        $query = $conn->prepare("SELECT Pokemon FROM users WHERE id=:id");
+        $query->bindParam(":id", $id);
+        $query->execute();
+        $result = $query->fetchAll();
+        return $result;
+    }
+
     function getInfoFromUserId($id){
         $conn = openConnection();
         $query = $conn->prepare("SELECT * FROM users WHERE id=:id");
         $query->bindParam(":id", $id);
         $query->execute();
         $result = $query->fetchAll();
-        return $result;
+        return $result[0];
     }

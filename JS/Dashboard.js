@@ -1,7 +1,6 @@
-const //Constants
+const //UserInfo Constants
 FormUserInfo = document.querySelector(".updateUserForm"),
 InfoTitle = document.querySelector(".user-info-title"),
-PokemonTitle = document.querySelector(".user-pokemon-title"),
 InfoSuccess = document.querySelector(".responseSuccess"),
 InfoFail = document.querySelector(".responseFail"),
 NameInput = document.querySelector(".updateName"),
@@ -9,7 +8,7 @@ MailInput = document.querySelector(".updateMail"),
 PassInput = document.querySelector(".updatePass"),
 UpdateUserButton = document.querySelector(".btnUpdateUser");
 
-var
+var //UserInfo Variables
 formUserPassInfo = document.querySelector(".updateUserPassForm"),
 updatePassButton = document.querySelector(".btnUpdatePass");
 
@@ -174,4 +173,15 @@ function showPass(){
 
 function hidePass(){
     this.type = "password";
+}
+
+const //UserPokemon Constants
+PokemonTitle = document.querySelector(".user-pokemon-title"),
+PokemonContainer = document.querySelector(".pokeContainer"),
+TestButton = document.querySelector(".btnTest");
+
+TestButton.onclick = ()=>{
+    if(PokemonContainer.children.length <= 0){
+        
+    }
 }

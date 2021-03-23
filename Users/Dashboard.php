@@ -3,6 +3,9 @@
     if(!isset($_SESSION['signedIn'])){
         header("location: ../Index.php");
     }
+    $Pokemons = getPokemonFromUser($_SESSION['userId']);
+
+    $baseImageLinkFront = "https://img.pokemondb.net/sprites/black-white/anim/normal/%s.gif";
 ?>
 
 <div class="d-flex flex-column flex-lg-row flex-xl-row">
@@ -30,9 +33,18 @@
     </div>
     <div class="user-pokemon col-lg-8 col-12">
         <h1 class="text-center text-light user-pokemon-title"><?= $_SESSION['username']?>'s Pokemon</h1>
-        <div class="border border-bottom-0 border-left-0 border-right-0 border-light mb-3">
-
+        <div class="border border-bottom-0 border-left-0 border-right-0 border-light mb-3 pokeContainer d-flex flex-row">
+            <button class="btn btn-outline-light col-lg-1 col-4 mt-3 pt-3 pb-4"> <!--These buttons are just here for a layout reference-->
+                <img class="img-fluid img-Pokemon" src="<?=sprintf($baseImageLinkFront, "oshawott")?>" alt="Oshawott">
+            </button>
+            <button class="btn btn-outline-light col-lg-1 col-4 ml-lg-5 mt-3 pt-3 pb-4">
+                <img class="img-fluid img-Pokemon" src="<?=sprintf($baseImageLinkFront, "oshawott")?>" alt="Oshawott">
+            </button>
+            <button class="btn btn-outline-light col-lg-1 col-4 ml-lg-5 mt-3 pt-3 pb-4">
+                <img class="img-fluid img-Pokemon" src="<?=sprintf($baseImageLinkFront, "oshawott")?>" alt="Oshawott">
+            </button>
         </div>
+        <button class="btnTest btn btn-outline-light">Add Pokemon</button>
     </div>
 </div>
 
@@ -41,4 +53,7 @@
 
 <?php
     setPageTitle("Dashboard", ob_get_contents());
+    /*<?php foreach($Pokemons as $Pokemon){?>
+        <p class="text-light text-left"><?php print_r($Pokemon)?></p>
+    <?php }?>*/
 ?>
