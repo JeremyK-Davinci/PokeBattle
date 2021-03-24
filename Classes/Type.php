@@ -32,10 +32,7 @@
         }
     }
 
-    $Types = [];
-
-    array_push($Types,
-     
+    $Types = [
         //1. Fire-Type
         new Type('Fire', 'Bug-Steel-Fire-Grass-Ice-Fairy', 'Ground-Rock-Water', ''),
 
@@ -89,4 +86,4 @@
         
         //18. Fairy-Type
         new Type('Fairy', 'Fighting-Bug-Dark', 'Poison-Steel', 'Dragon')     
-    );
+    ];

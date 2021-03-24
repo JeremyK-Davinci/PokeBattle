@@ -178,10 +178,79 @@ function hidePass(){
 const //UserPokemon Constants
 PokemonTitle = document.querySelector(".user-pokemon-title"),
 PokemonContainer = document.querySelector(".pokeContainer"),
-TestButton = document.querySelector(".btnTest");
+TestButton = document.querySelector(".btnTest"),
+TransferObject = document.querySelector(".JSTransfer");
+
+var //UserPokemon Variables
+SelectFirstPokemonButtons = document.querySelectorAll(".FirstPokemonButton");
+
+var //UserPokemon Arrays
+StarterPokemon = [];
 
 TestButton.onclick = ()=>{
-    if(PokemonContainer.children.length <= 0){
+    /*if(PokemonContainer.children.length <= 0){
         
+    }*/
+    createSelectFirstPokemonOverlay();
+}
+
+function createSelectFirstPokemonOverlay(){
+    var overlay = document.createElement("div");
+    overlay.classList.add("firstPokemonOverlay");
+
+    var overlayContainer = document.createElement("div");
+    overlayContainer.classList.add("col-lg-6", "col-12", "offset-lg-3", "border", "border-light", "rounded", "mb-5", "firstPokemonContainer", "reveal");
+
+    var TitleText = document.createElement("h1");
+    TitleText.textContent = "Looks like you don't have any pokemon yet. Let's change that now!";
+    TitleText.classList.add("text-center", "text-light");
+
+    var secondaryText = document.createElement("h3");
+    secondaryText.textContent = "Please select your first pokemon from this list";
+    secondaryText.classList.add("text-center", "text-light");
+
+    overlayContainer.appendChild(TitleText);
+    overlayContainer.appendChild(secondaryText);
+
+    StarterPokemon.forEach(Pokemon => {
+        var PokemonButton = document.createElement("button");
+        PokemonButton.classList.add("btn", "btn-outline-light", "col-lg-1", "col-4", "ml-lg-5", "mt-3", "mb-5", "pt-3", "pt-4", "FirstPokemonButton");
+
+        var PokemonImage = document.createElement("img");
+        PokemonImage.classList.add("img-fluid", "img-Pokemon");
+        PokemonImage.src = `https://img.pokemondb.net/sprites/bank/normal/${Pokemon['name'].toLowerCase()}.png`;
+        PokemonImage.alt = `${Pokemon['name']}`;
+
+        var PokemonName = document.createElement("p");
+        PokemonName.classList.add("pokemonName");
+        PokemonName.textContent = `${Pokemon['name']}`;
+
+        PokemonButton.appendChild(PokemonImage);
+        PokemonButton.appendChild(PokemonName);
+
+        overlayContainer.appendChild(PokemonButton);
+    });
+
+    SelectFirstPokemonButtons = document.querySelectorAll(".FirstPokemonButton");
+
+    overlay.appendChild(overlayContainer);
+
+    document.body.append(overlay);
+}
+
+function closeSelectFirstPokemonOverlay(){
+    var overlay = document.querySelector(".firstPokemonOverlay");
+    if(overlay != null){
+        document.body.removeChild(overlay);
     }
+}
+
+function selectThisPokemon(){
+    
+}
+
+document.body.onload = ()=>{
+    StarterPokemon = JSON.parse(TransferObject.value);
+    TransferObject.value = '';
+    console.log(StarterPokemon);
 }

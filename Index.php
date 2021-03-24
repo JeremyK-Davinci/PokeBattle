@@ -1,8 +1,4 @@
 <?php 
-    require ("Classes/Type.php");
-    require ("Classes/Attack.php");
-    require ("Classes/Pokemon.php");
-
     /*$Scratch = new Attack('Scratch', 15, $Types[4]);
     print_r('<pre>'.$Scratch.'</pre>');
 

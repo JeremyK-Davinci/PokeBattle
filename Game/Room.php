@@ -3,7 +3,7 @@
     require ("../Classes/Type.php");
     require ("../Classes/Attack.php");
     require ("../Classes/Pokemon.php");
-
+    
     if(!isset($_SESSION['signedIn'])){
         header("location:../Index.php");
     }

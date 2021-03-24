@@ -23,6 +23,12 @@
             </div>";
     }
 
+    function getArrayObjectByName($name, $array){
+        $index = array_search($name, array_column($array, 'name'));
+        $element = $index !== false ? $array[$index] : 'None';
+        return $element;
+    }
+
     function getPokemonFromUser($userId){
         $conn = openConnection();
         $query = $conn->prepare("SELECT Pokemon FROM users WHERE id=:id");

@@ -44,7 +44,7 @@ progress::-moz-progress-bar {
     margin-top: -1.75%;
 }
 
-.passwordUpdateOverlay{
+.passwordUpdateOverlay, .firstPokemonOverlay{
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.25);
@@ -52,8 +52,13 @@ progress::-moz-progress-bar {
     top: 0;
     left: 0;
 }
-.passwordUpdateContainer{
-    top: 7.5%;
+.passwordUpdateContainer, .firstPokemonContainer{
+    top: 12.5%;
+}
+
+.firstPokemonContainer{
+    background-image: linear-gradient(to right, #202020, #111119);
+    background-size: cover;
 }
 
 .btnCloseOverlay{
@@ -66,13 +71,41 @@ progress::-moz-progress-bar {
     color: white;
 }
 
+.btnPokemon, .FirstPokemonButton{
+    min-height: 6rem;
+}
+
 .img-Pokemon{
-    width: 4rem;
-    height: 4rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8rem;
+    height: 8rem;
+}
+
+.pr-2-o{
+    padding-right: .65rem!important;
+}
+
+.reveal{
+    animation: reveal 2.5s linear;
+}
+
+.FirstPokemonButton:hover .pokemonName, .btnPokemon:hover .pokemonName{
+    display: block;
+}
+
+.pokemonName{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 75%);
+    display: none;
 }
 
 #game-container{
-    /*display: none;*/
+    /*display: none;*/ /*This will be apart of the finished product but as of now has no use*/
 }
 
 #game-display-container{
@@ -267,4 +300,18 @@ progress::-moz-progress-bar {
     .pl-lg-5{
         padding-left: 4rem!important;
     }
+}
+
+@keyframes reveal{
+    0% {opacity: 0;}
+    10% {opacity: 0.1;}
+    20% {opacity: 0.2;}
+    30% {opacity: 0.3;}
+    40% {opacity: 0.4;}
+    50% {opacity: 0.5;}
+    60% {opacity: 0.6;}
+    70% {opacity: 0.7;}
+    80% {opacity: 0.8;}
+    90% {opacity: 0.9;}
+    100% {opacity: 1;}
 }
