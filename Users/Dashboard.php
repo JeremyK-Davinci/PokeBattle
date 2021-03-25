@@ -40,7 +40,7 @@
         <input class="JSTransfer" type="hidden" value=<?="'".$vals."'"?>>
         <h1 class="text-center text-light user-pokemon-title"><?= $_SESSION['username']?>'s Pokemon</h1>
         <div class="border border-bottom-0 border-left-0 border-right-0 border-light mb-3 pokeContainer d-flex flex-row flex-wrap">
-            <button class="btn btn-outline-light col-lg-1 col-4 ml-lg-4 mr-lg-4 mt-3 pt-3 pb-4 btnPokemon"> <!--These buttons are just here for a layout reference-->
+            <button class="btn btn-outline-light col-lg-1 col-4 ml-lg-4 mr-lg-4 mt-3 pt-3 pb-4 btnPokemon"> <!--These buttons are just here for a layout reference--><!--Displayed is the final design for buttons-->
                 <img class="img-fluid img-Pokemon" src="<?=sprintf($baseImageLinkFront, "oshawott")?>" alt="Oshawott">
                 <p class="pokemonName">Oshawott</p>
             </button>

@@ -53,7 +53,10 @@ progress::-moz-progress-bar {
     left: 0;
 }
 .passwordUpdateContainer, .firstPokemonContainer{
-    top: 12.5%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-bottom: 5rem;
 }
 
 .firstPokemonContainer{
@@ -284,21 +287,20 @@ progress::-moz-progress-bar {
     background-color: #F1A9F1;
 }
 
-@media (min-width: 1600px){
-    .flex-xxl-row{
-        -ms-flex-direction: row!important;
-        flex-direction: row!important;
-    }
-}
-
 @media (min-width: 1080px){
-    .pl-lg-5{
+    .pl-lg-5-o{
         padding-left: 1.5rem!important;
     }
 }
 @media (min-width: 1442px){
-    .pl-lg-5{
+    .pl-lg-5-o{
         padding-left: 4rem!important;
+    }
+}
+@media (min-width: 1600px){
+    .flex-xxl-row{
+        -ms-flex-direction: row!important;
+        flex-direction: row!important;
     }
 }
 

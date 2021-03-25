@@ -66,7 +66,7 @@ function createPasswordOverlay(){
     closeButton.addEventListener("click", closeOverlay);
 
     var passUpdateContainer = document.createElement("div");
-    passUpdateContainer.classList.add("col-lg-4", "col-12", "offset-lg-4", "border", "border-light", "rounded", "bg-dark", "passwordUpdateContainer");
+    passUpdateContainer.classList.add("col-lg-4", "col-12", "border", "border-light", "rounded", "bg-dark", "passwordUpdateContainer");
 
     var failInfo = document.createElement("p");
     failInfo.classList.add("border", "rounded", "bg-danger", "text-light", "text-center", "responseFail", "mx-3");
@@ -181,9 +181,6 @@ PokemonContainer = document.querySelector(".pokeContainer"),
 TestButton = document.querySelector(".btnTest"),
 TransferObject = document.querySelector(".JSTransfer");
 
-var //UserPokemon Variables
-SelectFirstPokemonButtons = document.querySelectorAll(".FirstPokemonButton");
-
 var //UserPokemon Arrays
 StarterPokemon = [];
 
@@ -192,6 +189,7 @@ TestButton.onclick = ()=>{
         
     }*/
     createSelectFirstPokemonOverlay();
+    SelectFirstPokemonButtons = document.querySelectorAll(".FirstPokemonButtons");
 }
 
 function createSelectFirstPokemonOverlay(){
@@ -199,7 +197,7 @@ function createSelectFirstPokemonOverlay(){
     overlay.classList.add("firstPokemonOverlay");
 
     var overlayContainer = document.createElement("div");
-    overlayContainer.classList.add("col-lg-6", "col-12", "offset-lg-3", "border", "border-light", "rounded", "mb-5", "firstPokemonContainer", "reveal");
+    overlayContainer.classList.add("col-lg-6", "col-12", "border", "border-light", "rounded", "firstPokemonContainer", "reveal");
 
     var TitleText = document.createElement("h1");
     TitleText.textContent = "Looks like you don't have any pokemon yet. Let's change that now!";
@@ -215,6 +213,8 @@ function createSelectFirstPokemonOverlay(){
     StarterPokemon.forEach(Pokemon => {
         var PokemonButton = document.createElement("button");
         PokemonButton.classList.add("btn", "btn-outline-light", "col-lg-1", "col-4", "ml-lg-5", "mt-3", "mb-5", "pt-3", "pt-4", "FirstPokemonButton");
+        PokemonButton.value = `${Pokemon['name']}`;
+        PokemonButton.addEventListener("click", selectThisPokemon);
 
         var PokemonImage = document.createElement("img");
         PokemonImage.classList.add("img-fluid", "img-Pokemon");
@@ -231,8 +231,6 @@ function createSelectFirstPokemonOverlay(){
         overlayContainer.appendChild(PokemonButton);
     });
 
-    SelectFirstPokemonButtons = document.querySelectorAll(".FirstPokemonButton");
-
     overlay.appendChild(overlayContainer);
 
     document.body.append(overlay);
@@ -246,7 +244,9 @@ function closeSelectFirstPokemonOverlay(){
 }
 
 function selectThisPokemon(){
-    
+    var name = this.value;
+    var pokemon = StarterPokemon.find(e => e.name == name);
+    console.log(`Selected ${JSON.stringify(pokemon)}`);
 }
 
 document.body.onload = ()=>{

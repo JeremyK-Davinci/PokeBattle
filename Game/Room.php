@@ -3,7 +3,7 @@
     require ("../Classes/Type.php");
     require ("../Classes/Attack.php");
     require ("../Classes/Pokemon.php");
-    
+
     if(!isset($_SESSION['signedIn'])){
         header("location:../Index.php");
     }
@@ -49,7 +49,7 @@
             </div>
         </div>
     </div>
-    <div id="game-button-container" class="col-8 col-lg-4 offset-2 offset-lg-4 d-block pl-3 pl-lg-5 bg-light rounded border border-dark fixed-bottom pb-5">
+    <div id="game-button-container" class="col-8 col-lg-4 offset-2 offset-lg-4 d-block pl-3 pl-lg-5-o bg-light rounded border border-dark fixed-bottom pb-5">
         <h3 class="text-center text-danger pr-5 responseFail"></h3>
         <h3 class="text-center text-success pr-5 responseSuccess"></h3>
         <?php foreach($myPokemon->attacks as $attack){?>
