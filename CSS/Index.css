@@ -5,7 +5,6 @@
 body{
     margin: 0;
     overflow: hidden;
-    overflow-y: auto;
     background-image: linear-gradient(to right, #202020, #111119);
     background-size: cover;
 }
@@ -48,14 +47,16 @@ progress::-moz-progress-bar {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.25);
-    position: absolute;
+    position: fixed;
+    overflow-y: scroll;
     top: 0;
     left: 0;
 }
 .passwordUpdateContainer, .firstPokemonContainer{
+    position: relative;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -20%);
     margin-bottom: 5rem;
 }
 
@@ -301,6 +302,16 @@ progress::-moz-progress-bar {
     .flex-xxl-row{
         -ms-flex-direction: row!important;
         flex-direction: row!important;
+    }
+}
+
+@media (min-height: 600px){
+    .passwordUpdateContainer, .firstPokemonContainer{
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin-bottom: 5rem;
     }
 }
 
