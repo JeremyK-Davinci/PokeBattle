@@ -44,11 +44,45 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
 
     public class StatusAttack : Attack
     {
+        public string AfflictingStatus { get; set; }
 
+        public int AfflictionValue { get; set; }
+        
+        public StatusAttack() { }
+
+        public StatusAttack(string name, EnergyType type, int maxpp, int remainingpp, string statusname, int statusaffliction)
+        {
+            Name = name;
+            Type = type;
+            MaxPP = maxpp;
+            RemainingPP = remainingpp;
+            AfflictingStatus = statusname;
+            AfflictionValue = statusaffliction;
+        }
     }
 
     public class EffectAttack : Attack
     {
+        public string EffectName { get; set; }
 
+        public int MinEffectDuration { get; set; }
+
+        public int MaxEffectDuration { get; set; }
+
+        public int EffectDamage { get; set; } = 0;
+
+        public EffectAttack() { }
+
+        public EffectAttack(string name, EnergyType type, int maxpp, int remainingpp, string effectname, int mineffectduration, int maxeffectduration, int effectdamage = 0)
+        {
+            Name = name;
+            Type = type;
+            MaxPP = maxpp;
+            RemainingPP = remainingpp;
+            EffectName = effectname;
+            MinEffectDuration = mineffectduration;
+            MaxEffectDuration = maxeffectduration;
+            EffectDamage = effectdamage;
+        }
     }
 }

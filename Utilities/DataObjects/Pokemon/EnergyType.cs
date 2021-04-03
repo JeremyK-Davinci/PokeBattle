@@ -8,20 +8,20 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
     {
         public string Name { get; set; }
 
-        public List<string> Strenghts { get; set; }
+        public List<string> Strenghts { get; set; } = new List<string>();
 
-        public List<string> Weaknesses { get; set; }
+        public List<string> Weaknesses { get; set; } = new List<string>();
 
-        public List<string> Resistances { get; set; }
+        public List<string> Resistances { get; set; } = new List<string>();
 
         public EnergyType() { }
 
-        public EnergyType(string name, List<string> strenghts, List<string> weaknesses, List<string> resistances)
+        public EnergyType(string name, List<string> strenghts = null, List<string> weaknesses = null, List<string> resistances = null)
         {
             Name = name;
-            Strenghts = strenghts;
-            Weaknesses = weaknesses;
-            Resistances = resistances;
+            Strenghts = strenghts == null ? new List<string>() : strenghts;
+            Weaknesses = weaknesses == null ? new List<string>() : weaknesses;
+            Resistances = resistances == null ? new List<string>() : resistances;
         }
     }
 }

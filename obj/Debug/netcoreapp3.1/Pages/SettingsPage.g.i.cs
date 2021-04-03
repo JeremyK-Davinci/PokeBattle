@@ -52,7 +52,7 @@ namespace PokeBattle.Pages {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/PokeBattle;V1.0.0.0;component/pages/settingspage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/PokeBattle;component/pages/settingspage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Pages\SettingsPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

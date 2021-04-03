@@ -27,3 +27,6 @@ D:\Code\Ampps\www\PokeBattleWPF\PokeBattle\obj\Debug\netcoreapp3.1\Pages\Setting
 D:\Code\Ampps\www\PokeBattleWPF\PokeBattle\obj\Debug\netcoreapp3.1\Pages\GamePage.baml
 D:\Code\Ampps\www\PokeBattleWPF\PokeBattle\obj\Debug\netcoreapp3.1\Pages\InfoPage.baml
 D:\Code\Ampps\www\PokeBattleWPF\PokeBattle\obj\Debug\netcoreapp3.1\Pages\SettingsPage.baml
+D:\Code\Ampps\www\PokeBattleWPF\PokeBattle\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\Code\Ampps\www\PokeBattleWPF\PokeBattle\obj\Debug\netcoreapp3.1\Styles\ProgressStyles.baml
+D:\Code\Ampps\www\PokeBattleWPF\PokeBattle\obj\Debug\netcoreapp3.1\PokeBattle.csproj.CopyComplete

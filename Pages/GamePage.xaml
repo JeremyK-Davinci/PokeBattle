@@ -19,6 +19,51 @@
             <Grid.Background>
                 <ImageBrush ImageSource="../Assets/battle_area_grass.png"/>
             </Grid.Background>
+            <Border x:Name="EnemyIndicator" BorderBrush="#FF898787" BorderThickness="5" CornerRadius="15, 0, 15, 0" Background="#FFF0F0F0" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="15, 15, 0, 0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" FontSize="20" Style="{StaticResource PokeFontTextBlock}" Margin="0, 0, 0, 10" Padding="5">
+                        <Run Text="Pokemon Name "/>
+                        <Run Text="Lv."/>
+                        <Run Text="5"/>
+                    </TextBlock>
+                    <TextBlock Grid.Row="1" Text="HP" FontSize="20" Style="{StaticResource PokeFontTextBlock}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50, 15, 0, 0"/>
+                    <ProgressBar x:Name="EnemyHealth" Grid.Row="1" Style="{DynamicResource HealthBar}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="10" Width="250" Minimum="0" Maximum="100" Value="87" Margin="0, 12, 10, 0"/>
+                </Grid>
+            </Border>
+            <Border x:Name="MyIndicator" BorderBrush="#FF898787" BorderThickness="5" CornerRadius="15, 0, 15, 0" Background="#FFF0F0F0" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0, 0, 15, 15">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" FontSize="20" Style="{StaticResource PokeFontTextBlock}" Margin="0, 0, 0, 10" Padding="5">
+                        <Run Text="Pokemon Name "/>
+                        <Run Text="Lv."/>
+                        <Run Text="5"/>
+                    </TextBlock>
+                    <TextBlock Grid.Row="1" Text="HP" FontSize="20" Style="{StaticResource PokeFontTextBlock}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50, 15, 0, 0"/>
+                    <ProgressBar x:Name="MyHealth" Grid.Row="1" Style="{StaticResource HealthBar}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="10" Width="250" Minimum="0" Maximum="100" Value="87" Margin="0, 12, 10, 0"/>
+                    <TextBlock x:Name="MyHealthText" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Style="{StaticResource PokeFontTextBlock}" Margin="100, 0, 0, 0">
+                        <Run Text="Cur"/>
+                        <Run Text="/"/>
+                        <Run Text="Max"/>
+                    </TextBlock>
+                    <Border Grid.Row="3" Background="#FF898787" BorderThickness="1" BorderBrush="#FF898787" CornerRadius="0, 0, 15, 0" Padding="1" Margin="0, 0, -3, -2">
+                        <Grid>
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Text="Exp." Foreground="WhiteSmoke" Style="{StaticResource PokeFontTextBlock}"/>
+                            <ProgressBar x:Name="MyExperience" Style="{StaticResource ExperienceBar}" VerticalAlignment="Center" HorizontalAlignment="Right" Width="300" Height="5" Foreground="Blue" Minimum="0" Maximum="100" Value="32" Margin="0, 0, 15, 0"/>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Border>
+            <Image Height="250" Width="250" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="200, 0"/>
+            <Image Height="250" Width="250" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="175, 100"/>
         </Grid>
         <Grid Grid.Row="1" Background="#FFE2E2E2">
             <Grid.ColumnDefinitions>
@@ -44,16 +89,16 @@
                     <StackPanel Orientation="Horizontal">
                         <Button Style="{StaticResource GameButtonStyles}" x:Name="ButtonAttack" BorderBrush="#FF898787" BorderThickness="2.5" Background="#CCDDDDDD" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200">
                             <Button.Content>
-                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" Foreground="#FF898787">
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" Foreground="#FF636363">
                                     <Run FontSize="20" Text="Attack"/>
                                     <LineBreak/>
                                     <Run FontSize="16" Text="Select an attack"/>
                                 </TextBlock>
                             </Button.Content>
                         </Button>
-                        <Button Style="{StaticResource GameButtonStyles}" x:Name="ButtonPokemon" BorderBrush="#FF898787" BorderThickness="2.5" Background="#CCDDDDDD" VerticalAlignment="Top" HorizontalAlignment="Right" Width="200" Margin="26, 0, 0, 0">
+                        <Button Style="{StaticResource GameButtonStyles}" x:Name="ButtonPokemon" BorderBrush="#FF898787" BorderThickness="2.5" Background="#CCDDDDDD" VerticalAlignment="Top" HorizontalAlignment="Right" Width="200" Margin="26, 0, 0, 0" IsEnabled="False">
                             <Button.Content>
-                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" Foreground="#FF898787">
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" Foreground="#FF636363">
                                     <Run FontSize="20" Text="Pokemon"/>
                                     <LineBreak/>
                                     <Run FontSize="16" Text="Select a different pokemon"/>
@@ -62,18 +107,18 @@
                         </Button>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0, 26, 0, 0">
-                        <Button Style="{StaticResource GameButtonStyles}" x:Name="ButtonItems" BorderBrush="#FF898787" BorderThickness="2.5" Background="#CCDDDDDD" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200">
+                        <Button Style="{StaticResource GameButtonStyles}" x:Name="ButtonItems" BorderBrush="#FF898787" BorderThickness="2.5" Background="#CCDDDDDD" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" IsEnabled="False">
                             <Button.Content>
-                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" Foreground="#FF898787">
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" Foreground="#FF636363">
                                     <Run FontSize="20" Text="Item"/>
                                     <LineBreak/>
                                     <Run FontSize="16" Text="Select an item to use"/>
                                 </TextBlock>
                             </Button.Content>
                         </Button>
-                        <Button Style="{StaticResource GameButtonStyles}" x:Name="ButtonRun" BorderBrush="#FF898787" BorderThickness="2.5" Background="#CCDDDDDD" VerticalAlignment="Top" HorizontalAlignment="Right" Width="200" Margin="26, 0, 0, 0">
+                        <Button Style="{StaticResource GameButtonStyles}" x:Name="ButtonRun" BorderBrush="#FF898787" BorderThickness="2.5" Background="#CCDDDDDD" VerticalAlignment="Top" HorizontalAlignment="Right" Width="200" Margin="26, 0, 0, 0" IsEnabled="False">
                             <Button.Content>
-                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" Foreground="#FF898787">
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" Foreground="#FF636363">
                                     <Run FontSize="20" Text="Run"/>
                                     <LineBreak/>
                                     <Run FontSize="16" Text="Run away"/>
@@ -86,9 +131,9 @@
             <Grid Grid.Column="0">
                 <Border BorderBrush="#FF898787" BorderThickness="5" CornerRadius="15" Background="WhiteSmoke" Margin="15">
                     <Grid>
-                        <!--<Grid x:Name="BattleInfoDisplay" Margin="5" Visibility="Hidden">
+                        <Grid x:Name="BattleInfoDisplay" Margin="5" Visibility="Hidden">
                             <TextBlock x:Name="BattleInfoText" FontSize="20" Style="{StaticResource PokeFontTextBlock}"/>
-                        </Grid>-->
+                        </Grid>
                         <Grid x:Name="BattleAttackButtonDisplay" Margin="5">
                             <ItemsControl x:Name="AttacksTemplate">
                                 <ItemsControl.ItemsPanel>
@@ -98,15 +143,15 @@
                                 </ItemsControl.ItemsPanel>
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
-                                        <Button Style="{StaticResource GameButtonStyles}" BorderBrush="#FF898787" BorderThickness="2.5" Background="#CCDDDDDD" VerticalAlignment="Top" HorizontalAlignment="Right" Width="200" Margin="26, 0, 0, 0">
+                                        <Button Style="{StaticResource GameButtonStyles}" BorderBrush="#FF898787" BorderThickness="2.5" Background="#CCDDDDDD" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" Margin="100, 10, 0, 0">
                                             <Button.Content>
-                                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" Foreground="#FF898787">
-                                                    <Run FontSize="20" Text="{Binding}"/>
+                                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" Foreground="#FF636363">
+                                                    <Run FontSize="20" Text=""/>
                                                     <LineBreak/>
                                                     <Run FontSize="16" Text="PP : "/>
-                                                    <Run FontSize="16" Text="{Binding}"/>
+                                                    <Run FontSize="16" Text=""/>
                                                     <Run FontSize="16" Text="/"/>
-                                                    <Run FontSize="16" Text="{Binding}"/>
+                                                    <Run FontSize="16" Text=""/>
                                                 </TextBlock>
                                             </Button.Content>
                                         </Button>

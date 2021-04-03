@@ -18,6 +18,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Assets\battle_area_grass.png" />
     <Resource Include="Assets\Icon.ico" />
     <Resource Include="Assets\Light\close.png" />
@@ -26,10 +30,6 @@
     <Resource Include="Assets\Light\play.png" />
     <Resource Include="Assets\Light\power.png" />
     <Resource Include="Assets\Light\settings.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Utilities\DataObjects\" />
   </ItemGroup>
 
 </Project>
