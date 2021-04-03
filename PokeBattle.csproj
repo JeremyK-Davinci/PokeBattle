@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>Assets\Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\battle_area_grass.png" />
+    <None Remove="Assets\Light\close.png" />
+    <None Remove="Assets\Light\info.png" />
+    <None Remove="Assets\Light\menu.png" />
+    <None Remove="Assets\Light\play.png" />
+    <None Remove="Assets\Light\power.png" />
+    <None Remove="Assets\Light\settings.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\battle_area_grass.png" />
+    <Resource Include="Assets\Icon.ico" />
+    <Resource Include="Assets\Light\close.png" />
+    <Resource Include="Assets\Light\info.png" />
+    <Resource Include="Assets\Light\menu.png" />
+    <Resource Include="Assets\Light\play.png" />
+    <Resource Include="Assets\Light\power.png" />
+    <Resource Include="Assets\Light\settings.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Utilities\DataObjects\" />
+  </ItemGroup>
+
+</Project>
