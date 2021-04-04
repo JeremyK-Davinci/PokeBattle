@@ -15,6 +15,27 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="200"/>
         </Grid.RowDefinitions>
+        <Grid x:Name="ExitBattleDialogWindow" Grid.RowSpan="2" Background="#99000000" Panel.ZIndex="1" Visibility="Hidden">
+            <Border Background="WhiteSmoke" BorderBrush="#FF898787" BorderThickness="5" CornerRadius="25" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid x:Name="ExitBattleDialogBox" Width="350" Height="150">
+                    <TextBlock Style="{StaticResource PokeFontTextBlock}" FontSize="20" TextAlignment="Center">
+                        <Run Text="Are you sure"/>
+                        <LineBreak />
+                        <Run Text="you want to leave"/>
+                    </TextBlock>
+                    <Button Style="{StaticResource DialogButtonStyleLeft}" x:Name="ExitBattleDialogConfirm" HorizontalAlignment="Left" VerticalAlignment="Bottom" Background="Transparent" Width="180" Height="50" BorderBrush="#FF898787" BorderThickness="5" Click="ExitBattleDialogConfirm">
+                        <Button.Content>
+                            <TextBlock Style="{StaticResource PokeFontTextBlock}" Text="Confirm" FontSize="16"/>
+                        </Button.Content>
+                    </Button>
+                    <Button Style="{StaticResource DialogButtonStyleRight}" x:Name="ExitBattleDialogCancel" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="Transparent" Width="180" Height="50" BorderBrush="#FF898787" BorderThickness="5" Click="ExitBattleDialogCancel">
+                        <Button.Content>
+                            <TextBlock Style="{StaticResource PokeFontTextBlock}" Text="Cancel" FontSize="16"/>
+                        </Button.Content>
+                    </Button>
+                </Grid>
+            </Border>
+        </Grid>
         <Grid Grid.Row="0">
             <Grid.Background>
                 <ImageBrush ImageSource="../Assets/battle_area_grass.png"/>
@@ -33,7 +54,7 @@
                         <Run Text="{Binding Path=Level, Mode=OneWay}"/>
                     </TextBlock>
                     <TextBlock Grid.Row="1" Text="HP" FontSize="20" Style="{StaticResource PokeFontTextBlock}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20, 15, 0, 0"/>
-                    <ProgressBar x:Name="EnemyHealth" Grid.Row="1" Style="{DynamicResource HealthBar}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="10" Width="250" Minimum="0" Maximum="100" Value="87" Margin="0, 12, 10, 0"/>
+                    <ProgressBar x:Name="EnemyHealth" Grid.Row="1" Style="{DynamicResource HealthBar}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="10" Width="250" Minimum="0" Maximum="100" Value="100" Margin="0, 12, 10, 0"/>
                 </Grid>
             </Border>
             <Border x:Name="MyIndicator" BorderBrush="#FF898787" BorderThickness="5" CornerRadius="15, 0, 15, 0" Background="#FFF0F0F0" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0, 0, 15, 15" MinWidth="400">
@@ -52,7 +73,7 @@
                         <Run Text="{Binding Path=Level, Mode=OneWay}"/>
                     </TextBlock>
                     <TextBlock Grid.Row="1" Text="HP" FontSize="20" Style="{StaticResource PokeFontTextBlock}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20, 15, 0, 0"/>
-                    <ProgressBar x:Name="MyHealth" Grid.Row="1" Style="{StaticResource HealthBar}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="10" Width="250" Minimum="0" Maximum="100" Value="87" Margin="0, 12, 10, 0"/>
+                    <ProgressBar x:Name="MyHealth" Grid.Row="1" Style="{StaticResource HealthBar}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="10" Width="250" Minimum="0" Maximum="100" Value="100" Margin="0, 12, 10, 0"/>
                     <TextBlock x:Name="MyHealthText" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Style="{StaticResource PokeFontTextBlock}" Margin="100, 0, 0, 0">
                         <Run Text="{Binding Path=CurrentHP, Mode=OneWay}"/>
                         <Run Text="/"/>
@@ -120,7 +141,7 @@
                                 </TextBlock>
                             </Button.Content>
                         </Button>
-                        <Button Style="{StaticResource GameButtonStyles}" x:Name="ButtonRun" BorderBrush="#FF898787" BorderThickness="2.5" Background="#CCDDDDDD" VerticalAlignment="Top" HorizontalAlignment="Right" Width="200" Margin="26, 0, 0, 0" IsEnabled="False">
+                        <Button Style="{StaticResource GameButtonStyles}" x:Name="ButtonRun" BorderBrush="#FF898787" BorderThickness="2.5" Background="#CCDDDDDD" VerticalAlignment="Top" HorizontalAlignment="Right" Width="200" Margin="26, 0, 0, 0" Click="ToggleExitBattleDialog">
                             <Button.Content>
                                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" Foreground="#FF636363">
                                     <Run FontSize="20" Text="Run"/>

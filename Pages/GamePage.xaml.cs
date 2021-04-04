@@ -63,6 +63,21 @@ namespace PokeBattle.Pages
             }
         }
 
+        private void ToggleExitBattleDialog(object sender, RoutedEventArgs e)
+        {
+            if (ExitBattleDialogWindow.Visibility == Visibility.Hidden)
+                ExitBattleDialogWindow.Visibility = Visibility.Visible;
+            else
+                ExitBattleDialogWindow.Visibility = Visibility.Hidden;
+        }
+
+        private void ExitBattleDialogConfirm(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ExitBattleDialogCancel(object sender, RoutedEventArgs e) => ToggleExitBattleDialog(sender, e);
+
         public void UpdatePokemonImages(string mySource, string enemySource)
         {
             MyPokemonImage.Source = Utility.GetImageFromUri(mySource);
