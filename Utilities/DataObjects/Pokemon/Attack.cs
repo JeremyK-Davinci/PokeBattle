@@ -17,12 +17,12 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
 
         public Attack() { }
 
-        public Attack(string name, EnergyType type, int maxpp, int remainingpp)
+        public Attack(string name, EnergyType type, int maxpp)
         {
             Name = name;
             Type = type;
             MaxPP = maxpp;
-            RemainingPP = remainingpp;
+            RemainingPP = MaxPP;
         }
     }
 
@@ -32,12 +32,12 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
 
         public DamageAttack() { }
 
-        public DamageAttack(string name, EnergyType type, int maxpp, int remainingpp, int damage)
+        public DamageAttack(string name, EnergyType type, int maxpp, int damage)
         {
             Name = name;
             Type = type;
             MaxPP = maxpp;
-            RemainingPP = remainingpp;
+            RemainingPP = MaxPP;
             Damage = damage;
         }
     }
@@ -50,12 +50,12 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
         
         public StatusAttack() { }
 
-        public StatusAttack(string name, EnergyType type, int maxpp, int remainingpp, string statusname, int statusaffliction)
+        public StatusAttack(string name, EnergyType type, int maxpp, string statusname, int statusaffliction)
         {
             Name = name;
             Type = type;
             MaxPP = maxpp;
-            RemainingPP = remainingpp;
+            RemainingPP = MaxPP;
             AfflictingStatus = statusname;
             AfflictionValue = statusaffliction;
         }
@@ -73,12 +73,12 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
 
         public EffectAttack() { }
 
-        public EffectAttack(string name, EnergyType type, int maxpp, int remainingpp, string effectname, int mineffectduration, int maxeffectduration, int effectdamage = 0)
+        public EffectAttack(string name, EnergyType type, int maxpp, string effectname, int mineffectduration, int maxeffectduration, int effectdamage = 0)
         {
             Name = name;
             Type = type;
             MaxPP = maxpp;
-            RemainingPP = remainingpp;
+            RemainingPP = MaxPP;
             EffectName = effectname;
             MinEffectDuration = mineffectduration;
             MaxEffectDuration = maxeffectduration;

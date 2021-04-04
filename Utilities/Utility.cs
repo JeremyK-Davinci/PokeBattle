@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Controls;
+using System.Drawing;
+using System.Windows.Media.Imaging;
 
 namespace PokeBattle.Utilities
 {
@@ -77,6 +79,8 @@ namespace PokeBattle.Utilities
         /// <summary>
         /// Creates a string list from a string array
         /// </summary>
-        private static List<string> ToListItem(string[] values) => new List<string>(values);
+        public static List<T> ToListItem<T>(T[] values) => new List<T>(values);
+
+        public static BitmapImage GetImageFromUri(string uri) => new BitmapImage(new Uri(uri, UriKind.Absolute));
     }
 }
