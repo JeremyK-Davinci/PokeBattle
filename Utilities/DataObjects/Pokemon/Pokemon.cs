@@ -87,24 +87,52 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
 
         public int CalculateExpToNextLevel()
         {
+            int value = -1;
             switch (ExpGroup)
             {
                 case ExperienceGroup.Erratic:
-                    return 100;
+                    value = CalculateExpToNextLevelErratic();
+                    return value;
                 case ExperienceGroup.Fast:
-                    return 100;
+                    value = (int)Math.Floor(0.8 * Math.Pow(Level, 3));
+                    return value;
                 case ExperienceGroup.Medium_Fast:
-                    return 100;
+                    value = (int)Math.Floor(Math.Pow(Level, 3));
+                    return value;
                 case ExperienceGroup.Medium_Slow:
-                    int value = (int)Math.Floor(1.2 * (Math.Pow(Level, 3) - 15 * Math.Pow(Level, 2) + 100 * Level - 140));
+                    value = (int)Math.Floor(1.2 * (Math.Pow(Level, 3) - 15 * Math.Pow(Level, 2) + 100 * Level - 140));
                     return value;
                 case ExperienceGroup.Slow:
-                    return 100;
+                    value = (int)Math.Floor(1.25 * Math.Pow(Level, 3));
+                    return value;
                 case ExperienceGroup.Fluctuating:
-                    return 100;
+                    value = CalculateExpToNextLevelFluctuating();
+                    return value;
             }
 
-            return -1;
+            return value;
+        }
+
+        private int CalculateExpToNextLevelErratic()
+        {
+            if (Level < 50)
+                return (int)Math.Floor(Math.Pow(Level, 3) * (100 - Level) / 50);
+            else if (Level >= 50 && Level < 68)
+                return (int)Math.Floor(Math.Pow(Level, 3) * (150 - Level) / 100);
+            else if (Level >= 68 && Level < 98)
+                return (int)Math.Floor(Math.Pow(Level, 3) * ((1911 - (10 * Level)) / 3) / 500);
+            else
+                return (int)Math.Floor(Math.Pow(Level, 3) * (160 - Level) / 100);
+        }
+
+        private int CalculateExpToNextLevelFluctuating()
+        {
+            if (Level < 15)
+                return (int)Math.Floor(Math.Pow(Level, 3) * ((((Level + 1) / 3) + 24) / 50));
+            else if (Level >= 15 && Level < 36)
+                return (int)Math.Floor(Math.Pow(Level, 3) * ((Level + 14) / 50));
+            else
+                return (int)Math.Floor(Math.Pow(Level, 3) * (((Level / 2) + 32) / 50));
         }
     }
 

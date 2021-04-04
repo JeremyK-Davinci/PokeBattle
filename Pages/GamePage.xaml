@@ -15,6 +15,12 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="200"/>
         </Grid.RowDefinitions>
+        <!--#region Pre-Start Dialog Window-->
+        <Grid x:Name="PreStartDialogWindow" Grid.RowSpan="2" Background="#FF181730" Panel.ZIndex="1">
+            
+        </Grid>
+        <!--#endregion-->
+        <!--#region Exit Battle Dialog Window-->
         <Grid x:Name="ExitBattleDialogWindow" Grid.RowSpan="2" Background="#99000000" Panel.ZIndex="1" Visibility="Hidden">
             <Border Background="WhiteSmoke" BorderBrush="#FF898787" BorderThickness="5" CornerRadius="25" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Grid x:Name="ExitBattleDialogBox" Width="350" Height="150">
@@ -23,12 +29,12 @@
                         <LineBreak />
                         <Run Text="you want to leave"/>
                     </TextBlock>
-                    <Button Style="{StaticResource DialogButtonStyleLeft}" x:Name="ExitBattleDialogConfirm" HorizontalAlignment="Left" VerticalAlignment="Bottom" Background="Transparent" Width="180" Height="50" BorderBrush="#FF898787" BorderThickness="5" Click="ExitBattleDialogConfirm">
+                    <Button Style="{StaticResource DialogButtonStyleLeft}" x:Name="ExitBattleDialogConfirm" HorizontalAlignment="Left" VerticalAlignment="Bottom" Background="Transparent" Width="180" Height="50" Margin="-5" BorderBrush="#FF898787" BorderThickness="5" Click="ExitBattleConfirm">
                         <Button.Content>
                             <TextBlock Style="{StaticResource PokeFontTextBlock}" Text="Confirm" FontSize="16"/>
                         </Button.Content>
                     </Button>
-                    <Button Style="{StaticResource DialogButtonStyleRight}" x:Name="ExitBattleDialogCancel" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="Transparent" Width="180" Height="50" BorderBrush="#FF898787" BorderThickness="5" Click="ExitBattleDialogCancel">
+                    <Button Style="{StaticResource DialogButtonStyleRight}" x:Name="ExitBattleDialogCancel" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="Transparent" Width="180" Height="50" Margin="-5" BorderBrush="#FF898787" BorderThickness="5" Click="ExitBattleCancel">
                         <Button.Content>
                             <TextBlock Style="{StaticResource PokeFontTextBlock}" Text="Cancel" FontSize="16"/>
                         </Button.Content>
@@ -36,18 +42,20 @@
                 </Grid>
             </Border>
         </Grid>
+        <!--#endregion-->
+        <!--#region Battle Display-->
         <Grid Grid.Row="0">
             <Grid.Background>
                 <ImageBrush ImageSource="../Assets/battle_area_grass.png"/>
             </Grid.Background>
-            <Border x:Name="EnemyIndicator" BorderBrush="#FF898787" BorderThickness="5" CornerRadius="15, 0, 15, 0" Background="#FFF0F0F0" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="15, 15, 0, 0" MinWidth="400">
+            <Border x:Name="EnemyIndicator" BorderBrush="#FF898787" BorderThickness="5" CornerRadius="0, 15, 0, 15" Background="#FFF0F0F0" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="15, 15, 0, 0" MinWidth="400">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
                     <TextBlock x:Name="EnemyPokeInfo" Grid.Row="0" FontSize="20" Style="{StaticResource PokeFontTextBlock}" Margin="0, 0, 0, 10" Padding="5">
-                        <Run Text="{Binding Path=Name, Mode=OneWay}"/>
+                        <Run Text="{Binding Path=NickName, Mode=OneWay}"/>
                     </TextBlock>
                     <TextBlock x:Name="EnemyPokeInfoLevel" Grid.Row="0" FontSize="20" Style="{StaticResource PokeFontTextBlock}" Margin="0, 0, 0, 10" Padding="5" TextAlignment="Right">
                         <Run Text="Lv."/>
@@ -66,7 +74,7 @@
                         <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
                     <TextBlock x:Name="MyPokeInfo" Grid.Row="0" FontSize="20" Style="{StaticResource PokeFontTextBlock}" Margin="0, 0, 0, 10" Padding="5">
-                        <Run Text="{Binding Path=Name, Mode=OneWay}"/>
+                        <Run Text="{Binding Path=NickName, Mode=OneWay}"/>
                     </TextBlock>
                     <TextBlock x:Name="MyPokeInfoLevel" Grid.Row="0" FontSize="20" Style="{StaticResource PokeFontTextBlock}" Margin="0, 0, 0, 10" Padding="5" TextAlignment="Right">
                         <Run Text="Lv."/>
@@ -82,7 +90,7 @@
                     <Border Grid.Row="3" Background="#FF898787" BorderThickness="1" BorderBrush="#FF898787" CornerRadius="0, 0, 15, 0" Padding="1" Margin="0, 0, -3, -2">
                         <Grid>
                             <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Text="Exp." Foreground="WhiteSmoke" Style="{StaticResource PokeFontTextBlock}"/>
-                            <ProgressBar x:Name="MyExperience" Style="{StaticResource ExperienceBar}" VerticalAlignment="Center" HorizontalAlignment="Right" Width="250" Height="5" Foreground="Blue" Minimum="0" Maximum="100" Value="32" Margin="0, 0, 15, 0"/>
+                            <ProgressBar x:Name="MyExperience" Style="{StaticResource ExperienceBar}" VerticalAlignment="Center" HorizontalAlignment="Right" Width="250" Height="5" Foreground="Blue" Minimum="0" Maximum="100" Value="0" Margin="0, 0, 15, 0"/>
                         </Grid>
                     </Border>
                 </Grid>
@@ -90,6 +98,8 @@
             <Image x:Name="MyPokemonImage" Height="250" Width="250" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="200, 0, 0, -40"/>
             <Image x:Name="EnemyPokemonImage" Height="250" Width="250" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="200, 125"/>
         </Grid>
+        <!--#endregion-->
+        <!--#region Battle Information Display-->
         <Grid Grid.Row="1" Background="#FFE2E2E2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*"/>
@@ -188,5 +198,6 @@
                 </Border>
             </Grid>
         </Grid>
+        <!--#endregion-->
     </Grid>
 </Page>

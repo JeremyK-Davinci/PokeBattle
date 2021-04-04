@@ -47,10 +47,12 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
         public string AfflictingStatus { get; set; }
 
         public int AfflictionValue { get; set; }
+
+        public bool Self { get; set; }
         
         public StatusAttack() { }
 
-        public StatusAttack(string name, EnergyType type, int maxpp, string statusname, int statusaffliction)
+        public StatusAttack(string name, EnergyType type, int maxpp, string statusname, int statusaffliction, bool self = false)
         {
             Name = name;
             Type = type;
@@ -58,6 +60,7 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
             RemainingPP = MaxPP;
             AfflictingStatus = statusname;
             AfflictionValue = statusaffliction;
+            Self = self;
         }
     }
 

@@ -6,6 +6,7 @@ using System.Text;
 using System.Windows.Controls;
 using System.Drawing;
 using System.Windows.Media.Imaging;
+using System.Security.Cryptography.X509Certificates;
 
 namespace PokeBattle.Utilities
 {
@@ -13,7 +14,31 @@ namespace PokeBattle.Utilities
     {
         public static Page ActivePage;
 
+        public static List<Pokemon> StarterPokemon = CreateStarterPokemon();
+
+        #region EnergyTypes
+
         public static List<EnergyType> EnergyTypes = CreateEnergyTypes();
+        public static EnergyType Normal = EnergyTypes.Where(x => x.Name == "Normal").First();
+        public static EnergyType Fighting = EnergyTypes.Where(x => x.Name == "Fighting").First();
+        public static EnergyType Flying = EnergyTypes.Where(x => x.Name == "Flying").First();
+        public static EnergyType Poison = EnergyTypes.Where(x => x.Name == "Poison").First();
+        public static EnergyType Ground = EnergyTypes.Where(x => x.Name == "Ground").First();
+        public static EnergyType Rock = EnergyTypes.Where(x => x.Name == "Rock").First();
+        public static EnergyType Bug = EnergyTypes.Where(x => x.Name == "Bug").First();
+        public static EnergyType Ghost = EnergyTypes.Where(x => x.Name == "Ghost").First();
+        public static EnergyType Steel = EnergyTypes.Where(x => x.Name == "Steel").First();
+        public static EnergyType Fire = EnergyTypes.Where(x => x.Name == "Fire").First();
+        public static EnergyType Water = EnergyTypes.Where(x => x.Name == "Water").First();
+        public static EnergyType Grass = EnergyTypes.Where(x => x.Name == "Grass").First();
+        public static EnergyType Electric = EnergyTypes.Where(x => x.Name == "Electric").First();
+        public static EnergyType Psychic = EnergyTypes.Where(x => x.Name == "Psychic").First();
+        public static EnergyType Ice = EnergyTypes.Where(x => x.Name == "Ice").First();
+        public static EnergyType Dragon = EnergyTypes.Where(x => x.Name == "Dragon").First();
+        public static EnergyType Dark = EnergyTypes.Where(x => x.Name == "Dark").First();
+        public static EnergyType Fairy = EnergyTypes.Where(x => x.Name == "Fairy").First();
+
+        #endregion
 
         private static List<EnergyType> CreateEnergyTypes()
         {
@@ -74,6 +99,104 @@ namespace PokeBattle.Utilities
             energyTypes.Add(new EnergyType("Fairy", ToListItem(new[] { "Fighting", "Bug", "Dark" }), ToListItem(new[] { "Poison", "Steel" }), ToListItem(new[] { "Dragon" })));
 
             return energyTypes;
+        }
+
+        private static List<Pokemon> CreateStarterPokemon()
+        {
+            var pokemons = new List<Pokemon>();
+
+            #region Generation 1
+
+            //Bulbasaur
+            pokemons.Add(new Pokemon("Bulbasaur", Grass, 45, ToListItem(new Stat[] { new Atk(49), new Def(49), new SPAtk(65), new SPDef(65), new Speed(45) }), ToListItem(new Attack[] { new StatusAttack("Growl", Normal, 40, "Attack", -1), new DamageAttack("Tackle", Normal, 35, 40) })));
+
+            //Charmander
+            pokemons.Add(new Pokemon("Charmander", Fire, 39, ToListItem(new Stat[] { new Atk(52), new Def(43), new SPAtk(60), new SPDef(50), new Speed(65) }), ToListItem(new Attack[] { new StatusAttack("Growl", Normal, 40, "Attack", -1), new DamageAttack("Scratch", Normal, 35, 40) })));
+
+            //Squirtle
+            pokemons.Add(new Pokemon("Squirtle", Water, 44, ToListItem(new Stat[] { new Atk(48), new Def(65), new SPAtk(50), new SPDef(64), new Speed(43) }), ToListItem(new Attack[] { new DamageAttack("Tackle", Normal, 35, 40), new StatusAttack("Tail Whip", Normal, 30, "Defense", -1) })));
+
+            #endregion
+
+            #region Generation 2
+
+            //Chikorita
+            pokemons.Add(new Pokemon("Chikorita", Grass, 45, ToListItem(new Stat[] { new Atk(49), new Def(65), new SPAtk(49), new SPDef(65), new Speed(45) }), ToListItem(new Attack[] { new StatusAttack("Growl", Normal, 40, "Attack", -1), new DamageAttack("Tackle", Normal, 35, 40) })));
+
+            //Cyndaquil
+            pokemons.Add(new Pokemon("Cyndaquil", Fire, 39, ToListItem(new Stat[] { new Atk(52), new Def(43), new SPAtk(60), new SPDef(50), new Speed(65) }), ToListItem(new Attack[] { new StatusAttack("Leer", Normal, 30, "Attack", -1), new DamageAttack("Tackle", Normal, 35, 40) })));
+
+            //Totodile
+            pokemons.Add(new Pokemon("Totodile", Water, 50, ToListItem(new Stat[] { new Atk(65), new Def(64), new SPAtk(44), new SPDef(48), new Speed(43) }), ToListItem(new Attack[] { new StatusAttack("Leer", Normal, 30, "Attack", -1), new DamageAttack("Scratch", Normal, 35, 40) })));
+
+            #endregion
+
+            #region Generation 3
+
+            //Treecko
+            pokemons.Add(new Pokemon("Treecko", Grass, 40, ToListItem(new Stat[] { new Atk(45), new Def(35), new SPAtk(65), new SPDef(55), new Speed(70) }), ToListItem(new Attack[] { new StatusAttack("Leer", Normal, 30, "Attack", -1), new DamageAttack("Pound", Normal, 35, 40) })));
+
+            //Torchic
+            pokemons.Add(new Pokemon("Torchic", Fire, 45, ToListItem(new Stat[] { new Atk(60), new Def(40), new SPAtk(70), new SPDef(50), new Speed(45) }), ToListItem(new Attack[] { new StatusAttack("Growl", Normal, 40, "Attack", -1), new DamageAttack("Scratch", Normal, 35, 40) })));
+
+            //Mudkip
+            pokemons.Add(new Pokemon("Mudkip", Water, 50, ToListItem(new Stat[] { new Atk(70), new Def(50), new SPAtk(50), new SPDef(50), new Speed(40) }), ToListItem(new Attack[] { new StatusAttack("Growl", Normal, 40, "Attack", -1), new DamageAttack("Tackle", Normal, 35, 40) })));
+
+            #endregion
+
+            #region Generation 4
+
+            //Turtwig
+            pokemons.Add(new Pokemon("Turtwig", Grass, 55, ToListItem(new Stat[] { new Atk(68), new Def(64), new SPAtk(45), new SPDef(55), new Speed(31) }), ToListItem(new Attack[] { new DamageAttack("Tackle", Normal, 35, 40), new StatusAttack("Withdraw", Water, 40, "Defense", 1, true)})));
+
+            //Chimchar
+            pokemons.Add(new Pokemon("Chimchar", Fire, 44, ToListItem(new Stat[] { new Atk(58), new Def(44), new SPAtk(58), new SPDef(44), new Speed(61) }), ToListItem(new Attack[] { new StatusAttack("Leer", Normal, 30, "Attack", -1), new DamageAttack("Scratch", Normal, 35, 40) })));
+
+            //Piplup
+            pokemons.Add(new Pokemon("Piplup", Water, 53, ToListItem(new Stat[] { new Atk(51), new Def(53), new SPAtk(61), new SPDef(56), new Speed(40) }), ToListItem(new Attack[] { new DamageAttack("Pound", Normal, 35, 40), new StatusAttack("Growl", Normal, 40, "Attack", -1) })));
+
+            #endregion
+
+            #region Generation 5
+
+            //Snivy
+            pokemons.Add(new Pokemon("Snivy", Grass, 45, ToListItem(new Stat[] { new Atk(45), new Def(55), new SPAtk(45), new SPDef(55), new Speed(63) }), ToListItem(new Attack[] { new DamageAttack("Tackle", Normal, 35, 40), new StatusAttack("Leer", Normal, 30, "Attack", -1) })));
+
+            //Tepig
+            pokemons.Add(new Pokemon("Tepig", Fire, 65, ToListItem(new Stat[] { new Atk(63), new Def(45), new SPAtk(45), new SPDef(45), new Speed(45) }), ToListItem(new Attack[] { new DamageAttack("Tackle", Normal, 35, 40), new StatusAttack("Tail Whip", Normal, 30, "Defense", -1) })));
+
+            //Oshawott
+            pokemons.Add(new Pokemon("Oshawott", Water, 55, ToListItem(new Stat[] { new Atk(55), new Def(45), new SPAtk(63), new SPDef(45), new Speed(45) }), ToListItem(new Attack[] { new DamageAttack("Tackle", Normal, 35, 40), new StatusAttack("Tail Whip", Normal, 30, "Defense", -1) })));
+
+            #endregion
+
+            #region Generation 6
+
+            //Chespin
+            pokemons.Add(new Pokemon("Chespin", Grass, 56, ToListItem(new Stat[] { new Atk(61), new Def(65), new SPAtk(48), new SPDef(45), new Speed(38) }), ToListItem(new Attack[] { new StatusAttack("Growl", Normal, 40, "Attack", -1), new DamageAttack("Tackle", Normal, 35, 40), new DamageAttack("Vine Whip", Grass, 25, 45) })));
+
+            //Fennekin
+            pokemons.Add(new Pokemon("Fennekin", Fire, 40, ToListItem(new Stat[] { new Atk(45), new Def(40), new SPAtk(62), new SPDef(60), new Speed(60) }), ToListItem(new Attack[] { new DamageAttack("Scratch", Normal, 35, 40), new StatusAttack("Tail Whip", Normal, 30, "Defense", -1), new DamageAttack("Ember", Fire, 25, 40) })));
+
+            //Froakie
+            pokemons.Add(new Pokemon("Froakie", Water, 41, ToListItem(new Stat[] { new Atk(56), new Def(40), new SPAtk(62), new SPDef(44), new Speed(71) }), ToListItem(new Attack[] { new StatusAttack("Growl", Normal, 40, "Attack", -1), new DamageAttack("Pound", Normal, 35, 40), new DamageAttack("Bubble", Water, 30, 40) })));
+
+            #endregion
+
+            #region Generation 7
+
+            //Rowlet
+            pokemons.Add(new Pokemon("Rowlet", Grass, 68, ToListItem(new Stat[] { new Atk(55), new Def(55), new SPAtk(50), new SPDef(50), new Speed(42) }), ToListItem(new Attack[] { new DamageAttack("Leafage", Grass, 40, 40), new DamageAttack("Tackle", Normal, 35, 40), new StatusAttack("Growl", Normal, 40, "Attack", -1) })));
+
+            //Litten
+            pokemons.Add(new Pokemon("Litten", Fire, 45, ToListItem(new Stat[] { new Atk(65), new Def(40), new SPAtk(60), new SPDef(40), new Speed(70) }), ToListItem(new Attack[] { new DamageAttack("Ember", Fire, 25, 40), new DamageAttack("Scratch", Normal, 35, 40), new StatusAttack("Growl", Normal, 40, "Attack", -1) })));
+
+            //Popplio
+            pokemons.Add(new Pokemon("Popplio", Water, 50, ToListItem(new Stat[] { new Atk(54), new Def(54), new SPAtk(66), new SPDef(56), new Speed(40) }), ToListItem(new Attack[] { new DamageAttack("Pound", Normal, 35, 40), new DamageAttack("Water Gun", Water, 25, 40), new StatusAttack("Growl", Normal, 40, "Attack", -1) })));
+
+            #endregion
+
+            return pokemons;
         }
 
         /// <summary>

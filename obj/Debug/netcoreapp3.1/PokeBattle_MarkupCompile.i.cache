@@ -1,19 +1,19 @@
 ﻿PokeBattle
-
+1.0.0.0
 
 winexe
 C#
 .cs
-C:\Program Files\Ampps\www\PokeBattle\obj\Debug\netcoreapp3.1\
+D:\Code\Ampps\www\PokeBattleWPF\PokeBattle\obj\Debug\netcoreapp3.1\
 PokeBattle
 none
 false
-TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
-C:\Program Files\Ampps\www\PokeBattle\App.xaml
-71489269578
+TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
+D:\Code\Ampps\www\PokeBattleWPF\PokeBattle\App.xaml
+71592104204
 
-14-1367479250
-1921654412462
+15-1895876024
+193404841408
 Index.xaml;Pages\GamePage.xaml;Pages\InfoPage.xaml;Pages\SettingsPage.xaml;PreGameWindow.xaml;Styles\ButtonStyles.xaml;Styles\ProgressStyles.xaml;
 
 True
