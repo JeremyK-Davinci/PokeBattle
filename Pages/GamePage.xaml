@@ -64,7 +64,7 @@
                                         <Run FontSize="24" Text="{Binding Path=Name}"/>
                                         <LineBreak/>
                                         <Run Text="Type : "/>
-                                        <Run Style="{StaticResource TypeColorTextRun}" Text="{Binding Path=Type.Name}"/>
+                                        <Run Text="{Binding Path=Type.Name, Mode=OneWay}"/>
                                     </TextBlock>
                                 </Grid>
                             </Button.Content>
@@ -247,10 +247,6 @@
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>
-                            <TextBlock x:Name="TestObject" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-                                <Run Text="Type : "/>
-                                <Run Text="{Binding Path=Type.Name}"/>
-                            </TextBlock>
                         </Grid>
                     </Grid>
                 </Border>

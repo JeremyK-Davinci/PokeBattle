@@ -34,7 +34,6 @@ namespace PokeBattle.Pages
             EnemyPokemon = Utility.StarterPokemon.Where(x => x.Name == "Charmander").First();
 
             SelectPokemonTemplate.ItemsSource = Pokemons;
-            TestObject.DataContext = MyPokemon;
 
             UpdatePokemonImages();
 

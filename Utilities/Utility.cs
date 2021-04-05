@@ -20,24 +20,24 @@ namespace PokeBattle.Utilities
         #region EnergyTypes
 
         public static List<EnergyType> EnergyTypes = CreateEnergyTypes();
-        public static EnergyType Normal = EnergyTypes.Where(x => x.Name == "Normal").First();
-        public static EnergyType Fighting = EnergyTypes.Where(x => x.Name == "Fighting").First();
-        public static EnergyType Flying = EnergyTypes.Where(x => x.Name == "Flying").First();
-        public static EnergyType Poison = EnergyTypes.Where(x => x.Name == "Poison").First();
-        public static EnergyType Ground = EnergyTypes.Where(x => x.Name == "Ground").First();
-        public static EnergyType Rock = EnergyTypes.Where(x => x.Name == "Rock").First();
-        public static EnergyType Bug = EnergyTypes.Where(x => x.Name == "Bug").First();
-        public static EnergyType Ghost = EnergyTypes.Where(x => x.Name == "Ghost").First();
-        public static EnergyType Steel = EnergyTypes.Where(x => x.Name == "Steel").First();
-        public static EnergyType Fire = EnergyTypes.Where(x => x.Name == "Fire").First();
-        public static EnergyType Water = EnergyTypes.Where(x => x.Name == "Water").First();
-        public static EnergyType Grass = EnergyTypes.Where(x => x.Name == "Grass").First();
-        public static EnergyType Electric = EnergyTypes.Where(x => x.Name == "Electric").First();
-        public static EnergyType Psychic = EnergyTypes.Where(x => x.Name == "Psychic").First();
-        public static EnergyType Ice = EnergyTypes.Where(x => x.Name == "Ice").First();
-        public static EnergyType Dragon = EnergyTypes.Where(x => x.Name == "Dragon").First();
-        public static EnergyType Dark = EnergyTypes.Where(x => x.Name == "Dark").First();
-        public static EnergyType Fairy = EnergyTypes.Where(x => x.Name == "Fairy").First();
+        public static EnergyType Normal;
+        public static EnergyType Fighting;
+        public static EnergyType Flying;
+        public static EnergyType Poison;
+        public static EnergyType Ground;
+        public static EnergyType Rock;
+        public static EnergyType Bug;
+        public static EnergyType Ghost;
+        public static EnergyType Steel;
+        public static EnergyType Fire;
+        public static EnergyType Water;
+        public static EnergyType Grass;
+        public static EnergyType Electric;
+        public static EnergyType Psychic;
+        public static EnergyType Ice;
+        public static EnergyType Dragon;
+        public static EnergyType Dark;
+        public static EnergyType Fairy;
 
         #endregion
 
@@ -102,8 +102,34 @@ namespace PokeBattle.Utilities
             return energyTypes;
         }
 
+        private static void UpdateEnergyTypeVariables()
+        {
+            if (EnergyTypes == null || EnergyTypes.Count <= 0)
+                EnergyTypes = CreateEnergyTypes();
+
+             Normal = EnergyTypes.Where(x => x.Name == "Normal").First();
+             Fighting = EnergyTypes.Where(x => x.Name == "Fighting").First();
+             Flying = EnergyTypes.Where(x => x.Name == "Flying").First();
+             Poison = EnergyTypes.Where(x => x.Name == "Poison").First();
+             Ground = EnergyTypes.Where(x => x.Name == "Ground").First();
+             Rock = EnergyTypes.Where(x => x.Name == "Rock").First();
+             Bug = EnergyTypes.Where(x => x.Name == "Bug").First();
+             Ghost = EnergyTypes.Where(x => x.Name == "Ghost").First();
+             Steel = EnergyTypes.Where(x => x.Name == "Steel").First();
+             Fire = EnergyTypes.Where(x => x.Name == "Fire").First();
+             Water = EnergyTypes.Where(x => x.Name == "Water").First();
+             Grass = EnergyTypes.Where(x => x.Name == "Grass").First();
+             Electric = EnergyTypes.Where(x => x.Name == "Electric").First();
+             Psychic = EnergyTypes.Where(x => x.Name == "Psychic").First();
+             Ice = EnergyTypes.Where(x => x.Name == "Ice").First();
+             Dragon = EnergyTypes.Where(x => x.Name == "Dragon").First();
+             Dark = EnergyTypes.Where(x => x.Name == "Dark").First();
+             Fairy = EnergyTypes.Where(x => x.Name == "Fairy").First();
+    }
+
         private static ObservableCollection<Pokemon> CreateStarterPokemon()
         {
+            UpdateEnergyTypeVariables();
             var pokemons = new ObservableCollection<Pokemon>();
 
             #region Generation 1
