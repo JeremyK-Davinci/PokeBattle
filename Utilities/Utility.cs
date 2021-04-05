@@ -171,7 +171,7 @@ namespace PokeBattle.Utilities
 
             #endregion
 
-            #region Generation 6
+            /*#region Generation 6
 
             //Chespin
             pokemons.Add(new Pokemon("Chespin", Grass, 56, ToListItem(new Stat[] { new Atk(61), new Def(65), new SPAtk(48), new SPDef(45), new Speed(38) }), ToListItem(new Attack[] { new StatusAttack("Growl", Normal, 40, "Attack", -1), new DamageAttack("Tackle", Normal, 35, 40), new DamageAttack("Vine Whip", Grass, 25, 45) })));
@@ -195,7 +195,7 @@ namespace PokeBattle.Utilities
             //Popplio
             pokemons.Add(new Pokemon("Popplio", Water, 50, ToListItem(new Stat[] { new Atk(54), new Def(54), new SPAtk(66), new SPDef(56), new Speed(40) }), ToListItem(new Attack[] { new DamageAttack("Pound", Normal, 35, 40), new DamageAttack("Water Gun", Water, 25, 40), new StatusAttack("Growl", Normal, 40, "Attack", -1) })));
 
-            #endregion
+            #endregion*/
 
             return pokemons;
         }

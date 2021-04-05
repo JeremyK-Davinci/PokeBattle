@@ -52,8 +52,8 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
             Attacks = attacks;
             NickName = string.IsNullOrWhiteSpace(nickname) ? name : nickname;
 
-            string ImageLinkFront = string.Format("https://img.pokemondb.net/sprites/ruby-sapphire/normal/{0}.png", name.ToLower());
-            string ImageLinkBack = string.Format("https://img.pokemondb.net/sprites/ruby-sapphire/back-normal/{0}.png", name.ToLower());
+            string ImageLinkFront = string.Format("https://img.pokemondb.net/sprites/black-white/normal/{0}.png", name.ToLower());
+            string ImageLinkBack = string.Format("https://img.pokemondb.net/sprites/black-white/back-normal/{0}.png", name.ToLower());
 
             ImageFront = Utility.GetImageFromUri(ImageLinkFront);
             ImageBack = Utility.GetImageFromUri(ImageLinkBack);

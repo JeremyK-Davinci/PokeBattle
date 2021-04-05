@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Ly9CKO5I1/wEa1qh4rsBsaw8Tu7bDTubEPvzhNF0kpLWwlvtdOdU3o7tnYGJXT1IL2qZRcoSNinJM5boutyMjA==",
+  "dgSpecHash": "cws0snlhOus+0AHCHYxEv2Ed8ahi/3dJs5kIdAocb0kpMuFWxxqSvTceeEzdb6dSm3mOB/i8z5RmGv2A6llLhQ==",
   "success": true,
-  "projectFilePath": "C:\\Program Files\\Ampps\\www\\PokeBattle\\PokeBattle.csproj",
+  "projectFilePath": "D:\\Code\\Ampps\\www\\PokeBattleWPF\\PokeBattle\\PokeBattle.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Jeremy\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+    "C:\\Users\\jerem\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],
   "logs": []
 }

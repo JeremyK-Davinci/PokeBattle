@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PokeBattle"
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="1215" Title="GamePage">
     <Page.Resources>
@@ -50,28 +51,24 @@
             <ItemsControl x:Name="SelectPokemonTemplate" Grid.Row="0">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <WrapPanel Orientation="Vertical" Margin="10, 0, 0, 0"/>
+                        <WrapPanel Orientation="Vertical" Margin="190, 0, 0, 0"/>
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <ContentPresenter>
-                            <ContentPresenter.Content>
-                                <Button Style="{StaticResource SelectPokemonButtonStyles}" Margin="10" VerticalContentAlignment="Bottom" BorderBrush="#FF898787" BorderThickness="5" Background="Transparent" Width="150" Height="150" Tag="{Binding Path=Name}">
-                                    <Button.Content>
-                                        <Grid>
-                                            <Image Source="{Binding Path=ImageFront}"/>
-                                            <TextBlock TextAlignment="Center" VerticalAlignment="Bottom" FontSize="20" Foreground="WhiteSmoke">
-                                                <Run FontSize="24" Text="{Binding Path=Name}"/>
-                                                <LineBreak/>
-                                                <Run Text="Type : "/>
-                                                <Run Style="{StaticResource TypeColorTextRun}" Text="{Binding Path=Type.Name}" Tag="{Binding Path=Type.Name}"/> 
-                                            </TextBlock>
-                                        </Grid>
-                                    </Button.Content>
-                                </Button>
-                            </ContentPresenter.Content>
-                        </ContentPresenter>
+                        <Button Style="{StaticResource SelectPokemonButtonStyles}" Margin="10" VerticalContentAlignment="Bottom" BorderBrush="#FF898787" BorderThickness="5" Background="Transparent" Width="150" Height="150" Tag="{Binding Path=Name}">
+                            <Button.Content>
+                                <Grid>
+                                    <Image Source="{Binding Path=ImageFront}" Margin="5, 0, 0, 20"/>
+                                    <TextBlock TextAlignment="Center" VerticalAlignment="Bottom" FontSize="18" Foreground="WhiteSmoke">
+                                        <Run FontSize="24" Text="{Binding Path=Name}"/>
+                                        <LineBreak/>
+                                        <Run Text="Type : "/>
+                                        <Run Style="{StaticResource TypeColorTextRun}" Text="{Binding Path=Type.Name}"/>
+                                    </TextBlock>
+                                </Grid>
+                            </Button.Content>
+                        </Button>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
@@ -250,6 +247,10 @@
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>
+                            <TextBlock x:Name="TestObject" FontSize="20" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                                <Run Text="Type : "/>
+                                <Run Text="{Binding Path=Type.Name}"/>
+                            </TextBlock>
                         </Grid>
                     </Grid>
                 </Border>
