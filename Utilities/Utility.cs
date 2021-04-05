@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Drawing;
 using System.Windows.Media.Imaging;
 using System.Security.Cryptography.X509Certificates;
+using System.Collections.ObjectModel;
 
 namespace PokeBattle.Utilities
 {
@@ -14,7 +15,7 @@ namespace PokeBattle.Utilities
     {
         public static Page ActivePage;
 
-        public static List<Pokemon> StarterPokemon = CreateStarterPokemon();
+        public static ObservableCollection<Pokemon> StarterPokemon = CreateStarterPokemon();
 
         #region EnergyTypes
 
@@ -101,9 +102,9 @@ namespace PokeBattle.Utilities
             return energyTypes;
         }
 
-        private static List<Pokemon> CreateStarterPokemon()
+        private static ObservableCollection<Pokemon> CreateStarterPokemon()
         {
-            var pokemons = new List<Pokemon>();
+            var pokemons = new ObservableCollection<Pokemon>();
 
             #region Generation 1
 

@@ -1,7 +1,9 @@
 ﻿using PokeBattle.Utilities;
 using PokeBattle.Utilities.DataObjects.Pokemon;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -23,12 +25,17 @@ namespace PokeBattle.Pages
     {
         private Pokemon MyPokemon;
         private Pokemon EnemyPokemon;
+        public ObservableCollection<Pokemon> Pokemons = Utility.StarterPokemon; 
 
         public GamePage()
         {
             InitializeComponent();
             MyPokemon = new Pokemon("Pikachu", Utility.Electric, 35, Utility.ToListItem(new Stat[] { new Atk(55), new Def(40), new SPAtk(50), new SPDef(50), new Speed(90) }), Utility.ToListItem(new Attack[] { new StatusAttack("Growl", Utility.Normal, 40, "Attack", -1), new DamageAttack("Thunder Shock", Utility.Electric, 30, 40), new StatusAttack("Tail Whip", Utility.Normal, 30, "Defense", -1) }));
             EnemyPokemon = Utility.StarterPokemon.Where(x => x.Name == "Charmander").First();
+
+            SelectPokemonTemplate.ItemsSource = Pokemons;
+
+            UpdatePokemonImages();
 
             UpdateDataContext(EnemyPokemon, true);
             UpdateDataContext(MyPokemon, false);
