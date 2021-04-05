@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Media.Imaging;
 
 namespace PokeBattle.Utilities.DataObjects.Pokemon
 {
@@ -30,9 +31,9 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
 
         public List<Attack> Attacks { get; set; }
 
-        public string ImageLinkFront { get; set; }
+        public BitmapImage ImageFront { get; set; }
 
-        public string ImageLinkBack { get; set; }
+        public BitmapImage ImageBack { get; set; }
 
         public Pokemon() { }
 
@@ -51,8 +52,11 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
             Attacks = attacks;
             NickName = string.IsNullOrWhiteSpace(nickname) ? name : nickname;
 
-            ImageLinkFront = string.Format("https://img.pokemondb.net/sprites/ruby-sapphire/normal/{0}.png", name.ToLower());
-            ImageLinkBack = string.Format("https://img.pokemondb.net/sprites/ruby-sapphire/back-normal/{0}.png", name.ToLower());
+            string ImageLinkFront = string.Format("https://img.pokemondb.net/sprites/ruby-sapphire/normal/{0}.png", name.ToLower());
+            string ImageLinkBack = string.Format("https://img.pokemondb.net/sprites/ruby-sapphire/back-normal/{0}.png", name.ToLower());
+
+            ImageFront = Utility.GetImageFromUri(ImageLinkFront);
+            ImageBack = Utility.GetImageFromUri(ImageLinkBack);
 
             CalculateStats();
         }

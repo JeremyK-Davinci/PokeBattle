@@ -30,8 +30,6 @@ namespace PokeBattle.Pages
             MyPokemon = new Pokemon("Pikachu", Utility.Electric, 35, Utility.ToListItem(new Stat[] { new Atk(55), new Def(40), new SPAtk(50), new SPDef(50), new Speed(90) }), Utility.ToListItem(new Attack[] { new StatusAttack("Growl", Utility.Normal, 40, "Attack", -1), new DamageAttack("Thunder Shock", Utility.Electric, 30, 40), new StatusAttack("Tail Whip", Utility.Normal, 30, "Defense", -1) }));
             EnemyPokemon = Utility.StarterPokemon.Where(x => x.Name == "Charmander").First();
 
-            UpdatePokemonImages(MyPokemon.ImageLinkBack, EnemyPokemon.ImageLinkFront);
-
             UpdateDataContext(EnemyPokemon, true);
             UpdateDataContext(MyPokemon, false);
         }
@@ -65,10 +63,16 @@ namespace PokeBattle.Pages
 
         private void ExitBattleCancel(object sender, RoutedEventArgs e) => ToggleExitBattleDialog(sender, e);
 
-        public void UpdatePokemonImages(string mySource, string enemySource)
+        private void DoAttack(object sender, RoutedEventArgs e)
         {
-            MyPokemonImage.Source = Utility.GetImageFromUri(mySource);
-            EnemyPokemonImage.Source = Utility.GetImageFromUri(enemySource);
+            Button b = (Button)sender;
+            string attackName = (string)b.Tag;
+        }
+
+        public void UpdatePokemonImages()
+        {
+            MyPokemonImage.Source = MyPokemon.ImageBack;
+            EnemyPokemonImage.Source = EnemyPokemon.ImageFront;
         }
 
         public void UpdateDataContext(Pokemon Selected, bool isEnemy)

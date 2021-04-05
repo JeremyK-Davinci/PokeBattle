@@ -6,9 +6,23 @@
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="1215" Title="GamePage">
     <Page.Resources>
+        <!--#region Poke Font Text-->
         <Style x:Key="PokeFontTextBlock" TargetType="{x:Type TextBlock}">
             <Setter Property="FontFamily" Value="../Fonts/Pokemon_Battle_Font.ttf #Pokemon GB"/>
         </Style>
+        <!--#endregion-->
+        <!--#region Type colored text-->
+        <Style x:Key="TypeColorTextRun" TargetType="{x:Type Run}">
+            <Style.Triggers>
+                <Trigger Property="Tag" Value="Normal">
+                    <Setter Property="Foreground" Value="LightGray"/>
+                </Trigger>
+                <Trigger Property="Tag" Value="Water">
+                    <Setter Property="Foreground" Value="MediumBlue"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <!--#endregion-->
     </Page.Resources>
 
     <Page.Triggers>
@@ -29,7 +43,11 @@
         </Grid.RowDefinitions>
         <!--#region Pre-Start Dialog Window-->
         <Grid x:Name="PreStartDialogWindow" Grid.RowSpan="2" Background="#FF181730" Panel.ZIndex="1">
-            <ItemsControl x:Name="SelectPokemonTemplate">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="200"/>
+            </Grid.RowDefinitions>
+            <ItemsControl x:Name="SelectPokemonTemplate" Grid.Row="0">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Orientation="Vertical"/>
@@ -37,15 +55,15 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Button BorderBrush="#FF898787" BorderThickness="2.5" Background="WhiteSmoke" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" Margin="90, 10, 0, 0">
+                        <Button Style="{StaticResource SelectPokemonButtonStyles}" Margin="10" VerticalContentAlignment="Bottom" BorderBrush="#FF898787" BorderThickness="5" Background="Transparent" Width="150" Height="150" Tag="{Binding Path=Name, Mode=OneWay}">
                             <Button.Content>
                                 <StackPanel Orientation="Vertical">
-                                    <Image />
-                                    <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Center" TextAlignment="Center" Foreground="#FF636363">
-                                        <Run FontSize="20" Text="{Binding Path=Name, Mode=OneWay}"/>
+                                    <Image Source="{Binding Path=ImageFront, Mode=OneWay}" Width="75" Height="75"/>
+                                    <TextBlock TextAlignment="Center" VerticalAlignment="Bottom" FontSize="24" Foreground="WhiteSmoke">
+                                        <Run Text="{Binding Path=Name, Mode=OneWay}"/>
                                         <LineBreak/>
-                                        <Run FontSize="16" Text="Type : "/>
-                                        <Run FontSize="16" Text="{Binding Path=Type.Name, Mode=OneWay}"/>
+                                        <Run Text="Type : "/>
+                                        <Run Style="{StaticResource TypeColorTextRun}" Text="{Binding Path=Type.Name, Mode=OneWay}" Tag="{Binding Path=Type.Name, Mode=OneWay}"/>
                                     </TextBlock>
                                 </StackPanel>
                             </Button.Content>
@@ -213,7 +231,7 @@
                                 </ItemsControl.ItemsPanel>
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
-                                        <Button Style="{StaticResource GameButtonStyles}" BorderBrush="#FF898787" BorderThickness="2.5" Background="#CCDDDDDD" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" Margin="90, 10, 0, 0">
+                                        <Button Style="{StaticResource GameButtonStyles}" BorderBrush="#FF898787" BorderThickness="2.5" Background="#CCDDDDDD" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" Margin="90, 10, 0, 0" Tag="{Binding Path=Name, Mode=OneWay}" Click="DoAttack">
                                             <Button.Content>
                                                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" Foreground="#FF636363">
                                                     <Run FontSize="20" Text="{Binding Path=Name, Mode=OneWay}"/>

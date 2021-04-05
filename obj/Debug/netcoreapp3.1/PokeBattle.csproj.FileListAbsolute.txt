@@ -30,3 +30,35 @@ D:\Code\Ampps\www\PokeBattleWPF\PokeBattle\obj\Debug\netcoreapp3.1\Pages\Setting
 D:\Code\Ampps\www\PokeBattleWPF\PokeBattle\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 D:\Code\Ampps\www\PokeBattleWPF\PokeBattle\obj\Debug\netcoreapp3.1\Styles\ProgressStyles.baml
 D:\Code\Ampps\www\PokeBattleWPF\PokeBattle\obj\Debug\netcoreapp3.1\PokeBattle.csproj.CopyComplete
+C:\Program Files\Ampps\www\PokeBattle\bin\Debug\netcoreapp3.1\PokeBattle.exe
+C:\Program Files\Ampps\www\PokeBattle\bin\Debug\netcoreapp3.1\PokeBattle.deps.json
+C:\Program Files\Ampps\www\PokeBattle\bin\Debug\netcoreapp3.1\PokeBattle.runtimeconfig.json
+C:\Program Files\Ampps\www\PokeBattle\bin\Debug\netcoreapp3.1\PokeBattle.runtimeconfig.dev.json
+C:\Program Files\Ampps\www\PokeBattle\bin\Debug\netcoreapp3.1\PokeBattle.dll
+C:\Program Files\Ampps\www\PokeBattle\bin\Debug\netcoreapp3.1\PokeBattle.pdb
+C:\Program Files\Ampps\www\PokeBattle\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Program Files\Ampps\www\PokeBattle\obj\Debug\netcoreapp3.1\PokeBattle.csprojAssemblyReference.cache
+C:\Program Files\Ampps\www\PokeBattle\obj\Debug\netcoreapp3.1\Index.baml
+C:\Program Files\Ampps\www\PokeBattle\obj\Debug\netcoreapp3.1\Pages\GamePage.baml
+C:\Program Files\Ampps\www\PokeBattle\obj\Debug\netcoreapp3.1\Pages\InfoPage.baml
+C:\Program Files\Ampps\www\PokeBattle\obj\Debug\netcoreapp3.1\Pages\SettingsPage.baml
+C:\Program Files\Ampps\www\PokeBattle\obj\Debug\netcoreapp3.1\PreGameWindow.baml
+C:\Program Files\Ampps\www\PokeBattle\obj\Debug\netcoreapp3.1\Styles\ButtonStyles.baml
+C:\Program Files\Ampps\www\PokeBattle\obj\Debug\netcoreapp3.1\Styles\ProgressStyles.baml
+C:\Program Files\Ampps\www\PokeBattle\obj\Debug\netcoreapp3.1\Index.g.cs
+C:\Program Files\Ampps\www\PokeBattle\obj\Debug\netcoreapp3.1\Pages\GamePage.g.cs
+C:\Program Files\Ampps\www\PokeBattle\obj\Debug\netcoreapp3.1\Pages\InfoPage.g.cs
+C:\Program Files\Ampps\www\PokeBattle\obj\Debug\netcoreapp3.1\Pages\SettingsPage.g.cs
+C:\Program Files\Ampps\www\PokeBattle\obj\Debug\netcoreapp3.1\PreGameWindow.g.cs
+C:\Program Files\Ampps\www\PokeBattle\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Program Files\Ampps\www\PokeBattle\obj\Debug\netcoreapp3.1\PokeBattle_MarkupCompile.cache
+C:\Program Files\Ampps\www\PokeBattle\obj\Debug\netcoreapp3.1\PokeBattle_MarkupCompile.lref
+C:\Program Files\Ampps\www\PokeBattle\obj\Debug\netcoreapp3.1\App.baml
+C:\Program Files\Ampps\www\PokeBattle\obj\Debug\netcoreapp3.1\PokeBattle.g.resources
+C:\Program Files\Ampps\www\PokeBattle\obj\Debug\netcoreapp3.1\PokeBattle.csproj.CoreCompileInputs.cache
+C:\Program Files\Ampps\www\PokeBattle\obj\Debug\netcoreapp3.1\PokeBattle.AssemblyInfoInputs.cache
+C:\Program Files\Ampps\www\PokeBattle\obj\Debug\netcoreapp3.1\PokeBattle.AssemblyInfo.cs
+C:\Program Files\Ampps\www\PokeBattle\obj\Debug\netcoreapp3.1\PokeBattle.csproj.CopyComplete
+C:\Program Files\Ampps\www\PokeBattle\obj\Debug\netcoreapp3.1\PokeBattle.dll
+C:\Program Files\Ampps\www\PokeBattle\obj\Debug\netcoreapp3.1\PokeBattle.pdb
+C:\Program Files\Ampps\www\PokeBattle\obj\Debug\netcoreapp3.1\PokeBattle.genruntimeconfig.cache
