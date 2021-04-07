@@ -15,7 +15,8 @@ namespace PokeBattle.Utilities
     {
         public static Page ActivePage;
 
-        public static ObservableCollection<Pokemon> StarterPokemon = CreateStarterPokemon();
+        public static ObservableCollection<Pokemon> UserPokemon = CreateStarterPokemon();
+        public static ObservableCollection<Pokemon> OpponentPokemon = CreateGamePokemon();
 
         #region EnergyTypes
 
@@ -222,6 +223,27 @@ namespace PokeBattle.Utilities
             pokemons.Add(new Pokemon("Popplio", Water, 50, ToListItem(new Stat[] { new Atk(54), new Def(54), new SPAtk(66), new SPDef(56), new Speed(40) }), ToListItem(new Attack[] { new DamageAttack("Pound", Normal, 35, 40), new DamageAttack("Water Gun", Water, 25, 40), new StatusAttack("Growl", Normal, 40, "Attack", -1) })));
 
             #endregion*/
+
+            return pokemons;
+        }
+
+        private static ObservableCollection<Pokemon> CreateGamePokemon()
+        {
+            if (UserPokemon == null || UserPokemon.Count <= 0)
+                UserPokemon = CreateStarterPokemon();
+            var pokemons = new ObservableCollection<Pokemon>();
+
+            foreach (Pokemon p in UserPokemon) pokemons.Add(p);
+
+            #region Generation 1
+
+            //Eevee
+            pokemons.Add(new Pokemon("Eevee", Normal, 55, ToListItem(new Stat[] { new Atk(55), new Def(50), new SPAtk(45), new SPDef(65), new Speed(55) }), ToListItem(new Attack[] { new DamageAttack("Tackle", Normal, 35, 40), new StatusAttack("Tail Whip", Normal, 30, "Defense", -1) })));
+
+            //Pikachu
+            pokemons.Add(new Pokemon("Pikachu", Electric, 35, ToListItem(new Stat[] { new Atk(55), new Def(40), new SPAtk(50), new SPDef(50), new Speed(90) }), ToListItem(new Attack[] { new StatusAttack("Growl", Normal, 40, "Attack", -1), new DamageAttack("Thunder Shock", Electric, 30, 40) })));
+
+            #endregion
 
             return pokemons;
         }

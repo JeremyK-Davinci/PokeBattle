@@ -10,12 +10,15 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
 
         public int Value { get; set; }
 
+        public int CurrentAffliction { get; set; }
+
         public Stat() { }
 
-        public Stat(string name, int value)
+        public Stat(string name, int value, int currentaffliction = 0)
         {
             Name = name;
             Value = value;
+            CurrentAffliction = currentaffliction;
         }
     }
 
@@ -23,10 +26,11 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
     {
         public Atk() { }
 
-        public Atk(int value)
+        public Atk(int value, int currentaffliction = 0)
         {
             Name = "Attack";
             Value = value;
+            CurrentAffliction = currentaffliction;
         }
     }
 
@@ -34,10 +38,11 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
     {
         public Def() { }
 
-        public Def(int value)
+        public Def(int value, int currentaffliction = 0)
         {
             Name = "Defense";
             Value = value;
+            CurrentAffliction = currentaffliction;
         }
     }
 
@@ -45,10 +50,11 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
     {
         public SPAtk() { }
 
-        public SPAtk(int value)
+        public SPAtk(int value, int currentaffliction = 0)
         {
             Name = "Special Attack";
             Value = value;
+            CurrentAffliction = currentaffliction;
         }
     }
 
@@ -56,10 +62,11 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
     {
         public SPDef() { }
 
-        public SPDef(int value)
+        public SPDef(int value, int currentaffliction = 0)
         {
             Name = "Special Defense";
             Value = value;
+            CurrentAffliction = currentaffliction;
         }
     }
 
@@ -67,10 +74,11 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
     {
         public Speed() { }
 
-        public Speed(int value)
+        public Speed(int value, int currentaffliction = 0)
         {
             Name = "Speed";
             Value = value;
+            CurrentAffliction = currentaffliction;
         }
     }
 }

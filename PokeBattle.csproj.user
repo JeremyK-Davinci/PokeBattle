@@ -42,5 +42,8 @@
     <Page Update="Styles\ProgressStyles.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Styles\TextStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 </Project>

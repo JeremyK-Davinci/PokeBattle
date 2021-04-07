@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using System.Windows.Media.Imaging;
 
@@ -28,6 +29,8 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
         public int CurrentHP { get; set; }
 
         public List<Stat> Stats { get; set; }
+
+        public List<Stat> CurrentStats { get; set; }
 
         public List<Attack> Attacks { get; set; }
 
@@ -59,6 +62,8 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
             ImageBack = Utility.GetImageFromUri(ImageLinkBack);
 
             CalculateStats();
+
+            CurrentStats = Stats;
         }
 
         public int CalculateHP()
@@ -82,7 +87,7 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
                 int value = stat.Value;
                 for(int i=0; i<Level; i++)
                 {
-                    int increment = rand.Next(0, 4);
+                    int increment = rand.Next(0, 5);
                     value += increment;
                 }
                 stat.Value = value;

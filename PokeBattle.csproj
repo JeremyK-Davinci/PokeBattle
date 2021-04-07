@@ -16,6 +16,7 @@
     <None Remove="Assets\Light\power.png" />
     <None Remove="Assets\Light\settings.png" />
     <None Remove="Fonts\Pokemon_Battle_Font.ttf" />
+    <None Remove="Fonts\Pokemon_Main_Font.ttf" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,6 +33,7 @@
     <Resource Include="Assets\Light\power.png" />
     <Resource Include="Assets\Light\settings.png" />
     <Resource Include="Fonts\Pokemon_Battle_Font.ttf" />
+    <Resource Include="Fonts\Pokemon_Main_Font.ttf" />
   </ItemGroup>
 
 </Project>

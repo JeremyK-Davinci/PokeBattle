@@ -62,3 +62,4 @@ C:\Program Files\Ampps\www\PokeBattle\obj\Debug\netcoreapp3.1\PokeBattle.csproj.
 C:\Program Files\Ampps\www\PokeBattle\obj\Debug\netcoreapp3.1\PokeBattle.dll
 C:\Program Files\Ampps\www\PokeBattle\obj\Debug\netcoreapp3.1\PokeBattle.pdb
 C:\Program Files\Ampps\www\PokeBattle\obj\Debug\netcoreapp3.1\PokeBattle.genruntimeconfig.cache
+D:\Code\Ampps\www\PokeBattleWPF\PokeBattle\obj\Debug\netcoreapp3.1\Styles\TextStyles.baml

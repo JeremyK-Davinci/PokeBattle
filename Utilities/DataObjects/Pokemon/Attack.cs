@@ -15,14 +15,17 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
 
         public int RemainingPP { get; set; }
 
+        public int Priority { get; set; }
+
         public Attack() { }
 
-        public Attack(string name, EnergyType type, int maxpp)
+        public Attack(string name, EnergyType type, int maxpp, int priority = 1)
         {
             Name = name;
             Type = type;
             MaxPP = maxpp;
             RemainingPP = MaxPP;
+            Priority = priority;
         }
     }
 
@@ -32,13 +35,14 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
 
         public DamageAttack() { }
 
-        public DamageAttack(string name, EnergyType type, int maxpp, int damage)
+        public DamageAttack(string name, EnergyType type, int maxpp, int damage, int priority = 1)
         {
             Name = name;
             Type = type;
             MaxPP = maxpp;
             RemainingPP = MaxPP;
             Damage = damage;
+            Priority = priority;
         }
     }
 
@@ -52,7 +56,7 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
         
         public StatusAttack() { }
 
-        public StatusAttack(string name, EnergyType type, int maxpp, string statusname, int statusaffliction, bool self = false)
+        public StatusAttack(string name, EnergyType type, int maxpp, string statusname, int statusaffliction, bool self = false, int priority = 1)
         {
             Name = name;
             Type = type;
@@ -61,6 +65,7 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
             AfflictingStatus = statusname;
             AfflictionValue = statusaffliction;
             Self = self;
+            Priority = priority;
         }
     }
 
@@ -76,7 +81,7 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
 
         public EffectAttack() { }
 
-        public EffectAttack(string name, EnergyType type, int maxpp, string effectname, int mineffectduration, int maxeffectduration, int effectdamage = 0)
+        public EffectAttack(string name, EnergyType type, int maxpp, string effectname, int mineffectduration, int maxeffectduration, int effectdamage = 0, int priority = 1)
         {
             Name = name;
             Type = type;
@@ -86,6 +91,7 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
             MinEffectDuration = mineffectduration;
             MaxEffectDuration = maxeffectduration;
             EffectDamage = effectdamage;
+            Priority = priority;
         }
     }
 }

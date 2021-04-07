@@ -19,9 +19,12 @@ namespace PokeBattle
     /// </summary>
     public partial class PreGameWindow : Window
     {
+        public static PreGameWindow _Window;
+
         public PreGameWindow()
         {
             InitializeComponent();
+            _Window = this;
         }
 
         private void MainLeftMouseDown(object sender, MouseButtonEventArgs e) => this.DragMove();
@@ -48,6 +51,12 @@ namespace PokeBattle
             InfoPage infoPage = new InfoPage();
             Utility.ActivePage = infoPage;
             PageFrame.Content = infoPage;
+        }
+
+        public void CloseCurrentPage()
+        {
+            Utility.ActivePage = null;
+            PageFrame.Content = null;
         }
     }
 }
