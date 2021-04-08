@@ -284,7 +284,7 @@ namespace PokeBattle.Utilities
             credits.Add(new Credit("Damage Calculation", "Bulbapedia", "https://bulbapedia.bulbagarden.net/wiki/Damage"));
             credits.Add(new Credit("Web Navigator for .Net Core", "Joel Harkens", "https://stackoverflow.com/a/43232486/13856060"));
             credits.Add(new Credit("Navigation system", "Jeremy", "https://overnightstudios.com/"));
-            credits.Add(new Credit("Cobat system", "Jeremy", "https://overnightstudios.com/"));
+            credits.Add(new Credit("Combat system", "Jeremy", "https://overnightstudios.com/"));
             credits.Add(new Credit("Damage Calculation C# conversion", "Jeremy", "https://overnightstudios.com/"));
 
             return credits;

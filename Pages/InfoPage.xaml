@@ -68,6 +68,7 @@
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
+                <TextBlock x:Name="Copyright" FontSize="24" VerticalAlignment="Bottom" HorizontalAlignment="Center" Foreground="WhiteSmoke" Margin="5, 25, 5, 5"/>
             </StackPanel>
         </ScrollViewer>
     </Grid>

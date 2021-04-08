@@ -17,6 +17,9 @@ namespace PokeBattle.Pages
             IconCreditsTemplate.ItemsSource = Utility.IconCredits;
             DesignCreditsTemplate.ItemsSource = Utility.DesignCredits;
             DevelopmentCreditsTemplate.ItemsSource = Utility.DevelopmentCredits;
+            string copy = char.ConvertFromUtf32(169);
+            string copyright = $"{copy} Overnight Studios, 2019-2021";
+            Copyright.Text = copyright;
         }
 
         private void NavigateToWeb(object sender, RequestNavigateEventArgs e)
