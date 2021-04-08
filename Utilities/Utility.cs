@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Windows.Media.Imaging;
 using System.Security.Cryptography.X509Certificates;
 using System.Collections.ObjectModel;
+using PokeBattle.Utilities.DataObjects;
 
 namespace PokeBattle.Utilities
 {
@@ -17,6 +18,10 @@ namespace PokeBattle.Utilities
 
         public static ObservableCollection<Pokemon> UserPokemon = CreateStarterPokemon();
         public static ObservableCollection<Pokemon> OpponentPokemon = CreateGamePokemon();
+
+        public static ObservableCollection<Credit> IconCredits = CreateIconCredits();
+        public static ObservableCollection<Credit> DesignCredits = CreateDesignCredits();
+        public static ObservableCollection<Credit> DevelopmentCredits = CreateDevCredits();
 
         #region EnergyTypes
 
@@ -248,11 +253,65 @@ namespace PokeBattle.Utilities
             return pokemons;
         }
 
+        private static ObservableCollection<Credit> CreateIconCredits()
+        {
+            var credits = new ObservableCollection<Credit>();
+
+            credits.Add(new Credit("Menu, Close and Power icon", "Freepik", "https://www.flaticon.com/authors/freepik"));
+            credits.Add(new Credit("Settings icon", "Vitaly Gorbachev", "https://www.flaticon.com/authors/vitaly-gorbachev"));
+            credits.Add(new Credit("Icon touch-ups", "Jeremy", "https://overnightstudios.com/"));
+
+            return credits;
+        }
+
+        private static ObservableCollection<Credit> CreateDesignCredits()
+        {
+            var credits = new ObservableCollection<Credit>();
+
+            credits.Add(new Credit("Expanding navigation original design", "C# Design Pro", "https://github.com/CSharpDesignPro"));
+            credits.Add(new Credit("Pokemon battle background image", "Professor Valley", "https://www.deviantart.com/jakrai/art/battle-backs-148961860"));
+            credits.Add(new Credit("Pokemon images", "Pokemondb", "https://pokemondb.net/sprites"));
+            credits.Add(new Credit("UX design", "Jeremy", "https://overnightstudios.com/"));
+
+            return credits;
+        }
+
+        private static ObservableCollection<Credit> CreateDevCredits()
+        {
+            var credits = new ObservableCollection<Credit>();
+
+            credits.Add(new Credit("Typewriter style text effect", "Programming is fun", "https://programmingisfun.com/"));
+            credits.Add(new Credit("Damage Calculation", "Bulbapedia", "https://bulbapedia.bulbagarden.net/wiki/Damage"));
+            credits.Add(new Credit("Web Navigator for .Net Core", "Joel Harkens", "https://stackoverflow.com/a/43232486/13856060"));
+            credits.Add(new Credit("Navigation system", "Jeremy", "https://overnightstudios.com/"));
+            credits.Add(new Credit("Cobat system", "Jeremy", "https://overnightstudios.com/"));
+            credits.Add(new Credit("Damage Calculation C# conversion", "Jeremy", "https://overnightstudios.com/"));
+
+            return credits;
+        }
+
         /// <summary>
         /// Creates a string list from a string array
         /// </summary>
         public static List<T> ToListItem<T>(T[] values) => new List<T>(values);
 
         public static BitmapImage GetImageFromUri(string uri) => new BitmapImage(new Uri(uri, UriKind.Absolute));
+
+        public static void ResetPokemon()
+        {
+            foreach (Pokemon p in UserPokemon)
+            {
+                p.CurrentHP = p.MaxHP;
+                p.CurrentStats = p.Stats;
+                p.Fainted = false;
+            }
+
+            foreach (Pokemon p in OpponentPokemon)
+            {
+                p.CurrentHP = p.MaxHP;
+                p.CurrentStats = p.Stats;
+                p.Fainted = false;
+            }
+        }
     }
 }

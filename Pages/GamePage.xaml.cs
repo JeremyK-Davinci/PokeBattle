@@ -74,8 +74,7 @@ namespace PokeBattle.Pages
         {
             BattleAttackButtonDisplay.Visibility = Visibility.Hidden;
             BattleInfoDisplay.Visibility = Visibility.Visible;
-            ButtonAttack.IsEnabled = false;
-            ButtonRun.IsEnabled = false;
+            DisableInput();
 
             Button b = (Button)sender;
             string attackName = (string)b.Tag;
@@ -93,11 +92,13 @@ namespace PokeBattle.Pages
             if(MyAttack.Priority > EnemyAttack.Priority)
             {
                 await PerformAttack(MyPokemon, EnemyPokemon, MyAttack);
+                if (EnemyPokemon == null) return;
                 await PerformAttack(EnemyPokemon, MyPokemon, EnemyAttack);
             }
             else if(MyAttack.Priority < EnemyAttack.Priority)
             {
                 await PerformAttack(EnemyPokemon, MyPokemon, EnemyAttack);
+                if (MyPokemon == null) return;
                 await PerformAttack(MyPokemon, EnemyPokemon, MyAttack);
             }
             else
@@ -107,16 +108,17 @@ namespace PokeBattle.Pages
                 if (MyPokemonSpeed > EnemyPokemonSpeed || MyPokemonSpeed == EnemyPokemonSpeed)
                 {
                     await PerformAttack(MyPokemon, EnemyPokemon, MyAttack);
+                    if (EnemyPokemon == null) return;
                     await PerformAttack(EnemyPokemon, MyPokemon, EnemyAttack);
                 }
                 else if (MyPokemonSpeed < EnemyPokemonSpeed)
                 {
                     await PerformAttack(EnemyPokemon, MyPokemon, EnemyAttack);
+                    if (MyPokemon == null) return;
                     await PerformAttack(MyPokemon, EnemyPokemon, MyAttack);
                 }
             }
-            ButtonAttack.IsEnabled = true;
-            ButtonRun.IsEnabled = true;
+            EnableInput();
         }
 
         private async Task PerformAttack(Pokemon sender, Pokemon reciever, Attack which)
@@ -137,7 +139,7 @@ namespace PokeBattle.Pages
                 {
                     var attack = which as DamageAttack;
                     int damage = CalculateAttackDamage(sender.Level, senderAttack, attack.Damage, recieverDefense, 0.5, sender.Type, attack.Type);
-                    UpdateBattleDisplay(forEnemy, damage);
+                    await UpdateBattleDisplay(forEnemy, damage);
                     await WriteToBattleInfo($"It was not very effective...");
                 }
                 else if(which is StatusAttack)
@@ -158,7 +160,7 @@ namespace PokeBattle.Pages
                 {
                     var attack = which as DamageAttack;
                     int damage = CalculateAttackDamage(sender.Level, senderAttack, attack.Damage, recieverDefense, 2, sender.Type, attack.Type);
-                    UpdateBattleDisplay(forEnemy, damage);
+                    await UpdateBattleDisplay(forEnemy, damage);
                     await WriteToBattleInfo($"It was very effective...");
                 }
                 else if (which is StatusAttack)
@@ -178,7 +180,7 @@ namespace PokeBattle.Pages
                 {
                     var attack = which as DamageAttack;
                     int damage = CalculateAttackDamage(sender.Level, senderAttack, attack.Damage, recieverDefense, 1, sender.Type, attack.Type);
-                    UpdateBattleDisplay(forEnemy, damage);
+                    await UpdateBattleDisplay(forEnemy, damage);
                 }
                 else if (which is StatusAttack)
                 {
@@ -191,21 +193,20 @@ namespace PokeBattle.Pages
                         await WriteToBattleInfo("nothing happened");
                 }
             }
-            which.RemainingPP--;
-            Task.Delay(250);
+            await Task.Delay(250);
         }
 
-        private async void UpdateBattleDisplay(bool forEnemy, int damage)
+        private async Task UpdateBattleDisplay(bool forEnemy, int damage)
         {
             if (forEnemy)
             {
                 if (EnemyPokemon.CurrentHP - damage < 0)
                 {
                     EnemyPokemon.CurrentHP = 0;
+                    EnemyPokemon.Fainted = true;
                     EnemyHealth.Value = EnemyPokemon.CurrentHP;
                     await WriteToBattleInfo($"{MyPokemon.NickName} Defeated {EnemyPokemon.NickName}");
-                    await WriteToBattleInfo("Returning to Menu in 10 seconds");
-                    Thread.Sleep(10000);
+                    await WriteToBattleInfo("Returning to Menu");
                     ClosePage();
                 }
                 else
@@ -219,11 +220,11 @@ namespace PokeBattle.Pages
                 if (MyPokemon.CurrentHP - damage < 0)
                 {
                     MyPokemon.CurrentHP = 0;
+                    MyPokemon.Fainted = true;
                     MyHealth.Value = MyPokemon.CurrentHP;
                     MyCurrentHealthText.Text = $"{MyPokemon.CurrentHP}";
                     await WriteToBattleInfo($"{EnemyPokemon.NickName} Defeated {MyPokemon.NickName}");
-                    await WriteToBattleInfo("Returning to menu in 10 seconds");
-                    Thread.Sleep(10000);
+                    await WriteToBattleInfo("Returning to menu");
                     ClosePage();
                 }
                 else
@@ -316,15 +317,31 @@ namespace PokeBattle.Pages
             MyPokemon = null;
             EnemyPokemon = null;
             LastSelected = null;
+            Utility.ResetPokemon();
             PreGameWindow._Window.CloseCurrentPage();
         }
 
         public int CalculateAttackDamage(int senderLevel, int senderAttack, int attackDamage, int recieverDefense, double TypeModifier, EnergyType senderType, EnergyType attackType)
         {
-            int levelVal = (int)Math.Floor((double)((2 * senderLevel) + 10) / 250);
-            int AtkDefVal = (int)Math.Floor((double)senderAttack / recieverDefense);
+            Random rand = new Random();
+            int random = rand.Next(217, 255);
+            double stab = senderType == attackType ? 1.5 : 1;
+            decimal levelVal = (decimal)((2 * senderLevel) / 5) + 2;
+            decimal atkDefVal;
 
-            int ReturnDamage = (int)Math.Floor(((levelVal * AtkDefVal) * attackDamage + 2) * TypeModifier);
+            try
+            {
+                atkDefVal = (decimal)senderAttack / recieverDefense;
+            }
+            catch(DivideByZeroException e)
+            {
+                atkDefVal = (decimal)0.5;
+            }
+
+            decimal randomMod = (decimal)random / 255;
+            decimal modifier = (decimal)((double)randomMod * stab * TypeModifier);
+
+            int ReturnDamage = (int)Math.Ceiling((double)(((((levelVal * attackDamage) * atkDefVal) / 50) + 2) * modifier) * 2.5);
             return ReturnDamage;
         }
 
@@ -396,6 +413,8 @@ namespace PokeBattle.Pages
         {
             Random rand = new Random();
             int index = rand.Next(0, ComputerPokemons.Count);
+            if (ComputerPokemons[index] == MyPokemon)
+                index = rand.Next(0, ComputerPokemons.Count);
             EnemyPokemon = ComputerPokemons[index];
         }
 

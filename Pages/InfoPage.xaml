@@ -5,8 +5,70 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="1215" Title="InfoPage">
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="Page.Loaded">
+            <EventTrigger.Actions>
+                <BeginStoryboard>
+                    <Storyboard Storyboard.TargetProperty="Opacity">
+                        <DoubleAnimation BeginTime="00:00:00" Duration="00:00:02" From="0" To="1"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger.Actions>
+        </EventTrigger>
+    </Page.Triggers>
 
-    <Grid Background="WhiteSmoke">
-
+    <Grid Background="#FF181730">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Icon Credits" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="WhiteSmoke" Margin="5"/>
+                <ItemsControl x:Name="IconCreditsTemplate">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical" Margin="0, 15">
+                                <TextBlock Text="{Binding Path=CreditReciever}" FontSize="40" Foreground="WhiteSmoke" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding Path=CreditFor}" FontSize="32" Foreground="WhiteSmoke" HorizontalAlignment="Center"/>
+                                <TextBlock FontSize="32" Foreground="WhiteSmoke" HorizontalAlignment="Center">
+                                <Hyperlink NavigateUri="{Binding Path=CreditLink}" RequestNavigate="NavigateToWeb" TextDecorations="None">
+                                    <Run Text="{Binding Path=CreditLink}" Foreground="WhiteSmoke"/>
+                                </Hyperlink>
+                                </TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                <TextBlock Text="Design Credits" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="WhiteSmoke" Margin="5"/>
+                <ItemsControl x:Name="DesignCreditsTemplate">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical" Margin="0, 15">
+                                <TextBlock Text="{Binding Path=CreditReciever}" FontSize="40" Foreground="WhiteSmoke" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding Path=CreditFor}" FontSize="32" Foreground="WhiteSmoke" HorizontalAlignment="Center"/>
+                                <TextBlock FontSize="32" Foreground="WhiteSmoke" HorizontalAlignment="Center">
+                                <Hyperlink NavigateUri="{Binding Path=CreditLink}" RequestNavigate="NavigateToWeb" TextDecorations="None">
+                                    <Run Text="{Binding Path=CreditLink}" Foreground="WhiteSmoke"/>
+                                </Hyperlink>
+                                </TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                <TextBlock Text="Development Credits" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="WhiteSmoke" Margin="5"/>
+                <ItemsControl x:Name="DevelopmentCreditsTemplate">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical" Margin="0, 15">
+                                <TextBlock Text="{Binding Path=CreditReciever}" FontSize="40" Foreground="WhiteSmoke" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding Path=CreditFor}" FontSize="32" Foreground="WhiteSmoke" HorizontalAlignment="Center"/>
+                                <TextBlock FontSize="32" Foreground="WhiteSmoke" HorizontalAlignment="Center">
+                                <Hyperlink NavigateUri="{Binding Path=CreditLink}" RequestNavigate="NavigateToWeb" TextDecorations="None">
+                                    <Run Text="{Binding Path=CreditLink}" Foreground="WhiteSmoke"/>
+                                </Hyperlink>
+                                </TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

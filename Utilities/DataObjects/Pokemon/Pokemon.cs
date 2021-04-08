@@ -38,6 +38,8 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
 
         public BitmapImage ImageBack { get; set; }
 
+        public bool Fainted { get; set; }
+
         public Pokemon() { }
 
         public Pokemon(string name, EnergyType type, int basehp, List<Stat> stats, List<Attack> attacks, int level = 5, int experience = 0, string nickname = "", ExperienceGroup expgroup = ExperienceGroup.Medium_Slow)
@@ -54,6 +56,7 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
             Stats = stats;
             Attacks = attacks;
             NickName = string.IsNullOrWhiteSpace(nickname) ? name : nickname;
+            Fainted = false;
 
             string ImageLinkFront = string.Format("https://img.pokemondb.net/sprites/black-white/normal/{0}.png", name.ToLower());
             string ImageLinkBack = string.Format("https://img.pokemondb.net/sprites/black-white/back-normal/{0}.png", name.ToLower());

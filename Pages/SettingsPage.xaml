@@ -6,7 +6,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="1215" Title="SettingsPage">
 
-    <Grid Background="WhiteSmoke">
-
+    <Grid Background="#FF181730">
+        <TextBlock Foreground="WhiteSmoke" Text="Currently Not Operational" TextAlignment="Center" VerticalAlignment="Center" FontSize="60"/>
     </Grid>
 </Page>

@@ -11,7 +11,7 @@
             <EventTrigger.Actions>
                 <BeginStoryboard>
                     <Storyboard Storyboard.TargetProperty="Opacity">
-                        <DoubleAnimation BeginTime="00:00:00" Duration="00:00:02.5" From="0" To="1"/>
+                        <DoubleAnimation BeginTime="00:00:00" Duration="00:00:02" From="0" To="1"/>
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger.Actions>
@@ -211,7 +211,7 @@
                 <Border BorderBrush="#FF898787" BorderThickness="5" CornerRadius="15" Background="WhiteSmoke" Margin="15">
                     <Grid>
                         <Grid x:Name="BattleInfoDisplay" Margin="5">
-                            <TextBlock x:Name="BattleInfoText" FontSize="20" Style="{StaticResource PokeFontTextBlock}"/>
+                            <TextBlock x:Name="BattleInfoText" FontSize="20" Style="{StaticResource PokeFontTextBlock}" TextWrapping="WrapWithOverflow"/>
                         </Grid>
                         <Grid x:Name="BattleAttackButtonDisplay" Margin="5" Visibility="Hidden">
                             <ItemsControl x:Name="AttacksTemplate">
@@ -227,10 +227,8 @@
                                                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" Foreground="#FF636363">
                                                     <Run FontSize="20" Text="{Binding Path=Name, Mode=OneWay}"/>
                                                     <LineBreak/>
-                                                    <Run FontSize="16" Text="PP : "/>
-                                                    <Run FontSize="16" Text="{Binding Path=RemainingPP, Mode=OneWay}"/>
-                                                    <Run FontSize="16" Text="/"/>
-                                                    <Run FontSize="16" Text="{Binding Path=MaxPP, Mode=OneWay}"/>
+                                                    <Run FontSize="16" Text="Type : "/>
+                                                    <Run FontSize="16" Text="{Binding Path=Type.Name, Mode=OneWay}"/>
                                                 </TextBlock>
                                             </Button.Content>
                                         </Button>

@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
+﻿using PokeBattle.Utilities;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace PokeBattle.Pages
 {
@@ -21,6 +14,38 @@ namespace PokeBattle.Pages
         public InfoPage()
         {
             InitializeComponent();
+            IconCreditsTemplate.ItemsSource = Utility.IconCredits;
+            DesignCreditsTemplate.ItemsSource = Utility.DesignCredits;
+            DevelopmentCreditsTemplate.ItemsSource = Utility.DevelopmentCredits;
+        }
+
+        private void NavigateToWeb(object sender, RequestNavigateEventArgs e)
+        {
+            try
+            {
+                Process.Start(e.Uri.AbsoluteUri);
+            }
+            catch
+            {
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                {
+                    string url = e.Uri.AbsoluteUri.Replace("&", "^&");
+                    Process.Start(new ProcessStartInfo("cmd", $"/c start {url}") { CreateNoWindow = true });
+                }
+                else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                {
+                    Process.Start("xdg-open", e.Uri.AbsoluteUri);
+                }
+                else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+                {
+                    Process.Start("open", e.Uri.AbsoluteUri);
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            e.Handled = true;
         }
     }
 }
