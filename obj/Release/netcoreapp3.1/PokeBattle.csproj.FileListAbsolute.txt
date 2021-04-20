@@ -4,7 +4,6 @@ D:\Code\Ampps\www\PokeBattleWPF\PokeBattle\bin\Release\netcoreapp3.1\PokeBattle.
 D:\Code\Ampps\www\PokeBattleWPF\PokeBattle\bin\Release\netcoreapp3.1\PokeBattle.runtimeconfig.dev.json
 D:\Code\Ampps\www\PokeBattleWPF\PokeBattle\bin\Release\netcoreapp3.1\PokeBattle.dll
 D:\Code\Ampps\www\PokeBattleWPF\PokeBattle\bin\Release\netcoreapp3.1\PokeBattle.pdb
-D:\Code\Ampps\www\PokeBattleWPF\PokeBattle\obj\Release\netcoreapp3.1\PokeBattle.csprojAssemblyReference.cache
 D:\Code\Ampps\www\PokeBattleWPF\PokeBattle\obj\Release\netcoreapp3.1\Index.baml
 D:\Code\Ampps\www\PokeBattleWPF\PokeBattle\obj\Release\netcoreapp3.1\Pages\InfoPage.baml
 D:\Code\Ampps\www\PokeBattleWPF\PokeBattle\obj\Release\netcoreapp3.1\Pages\SettingsPage.baml
