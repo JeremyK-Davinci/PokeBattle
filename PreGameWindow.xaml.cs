@@ -28,9 +28,23 @@ namespace PokeBattle
         }
 
         private void MainLeftMouseDown(object sender, MouseButtonEventArgs e) => this.DragMove();
+
         private void CloseApp(object sender, MouseButtonEventArgs e) => this.Close();
+
+        /// <summary>
+        /// Show the background overlay when the navbar is toggled to active
+        /// </summary>
+        /// <param name="sender">The navbar toggle button</param>
+        /// <param name="e">Event arguments</param>
         private void NavToggleChecked(object sender, RoutedEventArgs e) => OverlayObject.Visibility = Visibility.Visible;
+
+        /// <summary>
+        /// Hides the background overlay when the navbar is toggled to inactive
+        /// </summary>
+        /// <param name="sender">The navbar toggle button</param>
+        /// <param name="e">Event arguments</param>
         private void NavToggleUnchecked(object sender, RoutedEventArgs e) => OverlayObject.Visibility = Visibility.Hidden;
+
         private void OpenGamePage(object sender, MouseButtonEventArgs e)
         {
             if (Utility.ActivePage != null && Utility.ActivePage is GamePage) return;

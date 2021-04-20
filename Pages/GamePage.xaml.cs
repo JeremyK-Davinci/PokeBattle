@@ -70,6 +70,11 @@ namespace PokeBattle.Pages
 
         private void ExitBattleCancel(object sender, RoutedEventArgs e) => ToggleExitBattleDialog(sender, e);
 
+        /// <summary>
+        /// Gets the attacks from both pokemon on a button click
+        /// </summary>
+        /// <param name="sender">The button which send the user chosen attack</param>
+        /// <param name="e">Event arguments</param>
         private void DoAttack(object sender, RoutedEventArgs e)
         {
             BattleAttackButtonDisplay.Visibility = Visibility.Hidden;
@@ -87,6 +92,11 @@ namespace PokeBattle.Pages
             StartAttackSequence(myAtk, enemyAtk);
         }
 
+        /// <summary>
+        /// Starts the attack sequence depending on move priority and pokemon speed
+        /// </summary>
+        /// <param name="MyAttack">The attack done by MyPokemon</param>
+        /// <param name="EnemyAttack">The attack done by EnemyPokemon</param>
         private async void StartAttackSequence(Attack MyAttack, Attack EnemyAttack)
         {
             if(MyAttack.Priority > EnemyAttack.Priority)
@@ -121,6 +131,12 @@ namespace PokeBattle.Pages
             EnableInput();
         }
 
+        /// <summary>
+        /// Does the attack
+        /// </summary>
+        /// <param name="sender">The pokemon who did the attack</param>
+        /// <param name="reciever">The pokemon who is attacked</param>
+        /// <param name="which">The attack done</param>
         private async Task PerformAttack(Pokemon sender, Pokemon reciever, Attack which)
         {
             bool forEnemy = EnemyPokemon == reciever;
@@ -196,6 +212,11 @@ namespace PokeBattle.Pages
             await Task.Delay(250);
         }
 
+        /// <summary>
+        /// Updates the ui with the new data for the pokemon
+        /// </summary>
+        /// <param name="forEnemy">Should it update the enemy pokemons display</param>
+        /// <param name="damage">The damage done</param>
         private async Task UpdateBattleDisplay(bool forEnemy, int damage)
         {
             if (forEnemy)
@@ -236,6 +257,10 @@ namespace PokeBattle.Pages
             }
         }
 
+        /// <summary>
+        /// Writes some info to the battle info display
+        /// </summary>
+        /// <param name="text">The info to write</param>
         private async Task WriteToBattleInfo(string text)
         {
             BattleInfoDisplay.Visibility = Visibility.Visible;
@@ -253,6 +278,9 @@ namespace PokeBattle.Pages
             while (!t.IsCompleted) await Task.Delay(1);
         }
 
+        /// <summary>
+        /// Starts the countdown before the game starts
+        /// </summary>
         private void StartTimer()
         {
             int countdown = 5;
@@ -269,22 +297,55 @@ namespace PokeBattle.Pages
             t.Start();
         }
 
+        /// <summary>
+        /// Invokes the ClearBattleInfoText method (for cross-threaded operation)
+        /// </summary>
         private void delegateClearBattleInfoText() => Dispatcher.Invoke(new CrossClearBattleInfoText(ClearBattleInfoText));
 
+        /// <summary>
+        /// Removes the text from the battle info display
+        /// </summary>
         private void ClearBattleInfoText() => BattleInfoText.Text = "";
 
+        /// <summary>
+        /// Invokes the UpdateBattleInfoText method (for cross-threaded operation)
+        /// </summary>
+        /// <param name="c">The character to add</param>
         private void delegateUpdateBattleInfoText(char c) => Dispatcher.Invoke(new CrossUpdateBattleInfoText(UpdateBattleInfoText), c);
 
+        /// <summary>
+        /// Updates the battle info display with a new char
+        /// </summary>
+        /// <param name="c">The character to add</param>
         private void UpdateBattleInfoText(char c) => BattleInfoText.Text = BattleInfoText.Text + c;
 
+        /// <summary>
+        /// Invokes the LoadGameScreen method (for cross-threaded operation)
+        /// </summary>
         private void delegateLoadGameScreen() => Dispatcher.Invoke(new CrossLoadGameScreen(LoadGameScreen));
 
+        /// <summary>
+        /// Shows the game screen
+        /// </summary>
         private void LoadGameScreen() => GameStartingWindow.Visibility = Visibility.Hidden;
-
-        private void UpdateTimer(int value) => StartingTextCountdown.Text = $"{value}";
-
+        
+        /// <summary>
+        /// Invokes the UpdateTimer method (for cross-threaded operation)
+        /// </summary>
+        /// <param name="value">The new remaining time</param>
         private void delegateUpdateTimer(int value) => Dispatcher.Invoke(new CrossUpdateTimer(UpdateTimer), value);
 
+        /// <summary>
+        /// Updates the pre-game timer
+        /// </summary>
+        /// <param name="value">The new remaining time</param>
+        private void UpdateTimer(int value) => StartingTextCountdown.Text = $"{value}";
+
+        /// <summary>
+        /// Selects a pokemon when it's button is clicked
+        /// </summary>
+        /// <param name="sender">The button which called the method</param>
+        /// <param name="e">Event arguments</param>
         private void SelectPokemon(object sender, RoutedEventArgs e)
         {
             Button b = (Button)sender;
@@ -298,6 +359,11 @@ namespace PokeBattle.Pages
             }
         }
 
+        /// <summary>
+        /// Starts the countdown before game start when it's button is clicked
+        /// </summary>
+        /// <param name="sender">The button which called the method</param>
+        /// <param name="e">Event arguments</param>
         private void StartGame(object sender, RoutedEventArgs e)
         {
             UpdateEnemyPokemon();
@@ -312,6 +378,9 @@ namespace PokeBattle.Pages
             }
         }
 
+        /// <summary>
+        /// Closes the gamepage
+        /// </summary>
         private void ClosePage()
         {
             MyPokemon = null;
@@ -321,6 +390,17 @@ namespace PokeBattle.Pages
             PreGameWindow._Window.CloseCurrentPage();
         }
 
+        /// <summary>
+        /// Calculates the damage to be done by an attack
+        /// </summary>
+        /// <param name="senderLevel">The level of the pokemon who send the attack</param>
+        /// <param name="senderAttack">The level of the pokemon who will recieve the attack</param>
+        /// <param name="attackDamage">The base damage of the attack</param>
+        /// <param name="recieverDefense">The defense stat of the pokemon who will recieve the attack</param>
+        /// <param name="TypeModifier">The additional modifier of the type effectiveness</param>
+        /// <param name="senderType">The type of the pokemon who send the attack</param>
+        /// <param name="attackType">The type of the attack done</param>
+        /// <returns>The damage to be done to the reciever</returns>
         public int CalculateAttackDamage(int senderLevel, int senderAttack, int attackDamage, int recieverDefense, double TypeModifier, EnergyType senderType, EnergyType attackType)
         {
             Random rand = new Random();
@@ -345,6 +425,13 @@ namespace PokeBattle.Pages
             return ReturnDamage;
         }
 
+        /// <summary>
+        /// Updates the stats of the reciever depending on current affliction
+        /// </summary>
+        /// <param name="reciever">The pokemon who will recieve the attack</param>
+        /// <param name="attack">The attack to be done</param>
+        /// <param name="multiplier">The multiplier of the attack</param>
+        /// <returns>True if can update, false if can't update</returns>
         public bool UpdateStatusAfflictions(Pokemon reciever, StatusAttack attack, int multiplier = 1)
         {
             var origStatus = reciever.Stats.Where(x => x.Name == attack.AfflictingStatus).FirstOrDefault();
@@ -397,18 +484,27 @@ namespace PokeBattle.Pages
             return false;
         }
 
+        /// <summary>
+        /// Disables the input buttons during attack sequence
+        /// </summary>
         private void DisableInput()
         {
             ButtonAttack.IsEnabled = false;
             ButtonRun.IsEnabled = false;
         }
 
+        /// <summary>
+        /// Re-enables the input buttons after the attack sequence
+        /// </summary>
         private void EnableInput()
         {
             ButtonAttack.IsEnabled = true;
             ButtonRun.IsEnabled = true;
         }
 
+        /// <summary>
+        /// Gets a random pokemon for the enemy
+        /// </summary>
         public void UpdateEnemyPokemon()
         {
             Random rand = new Random();
@@ -418,12 +514,20 @@ namespace PokeBattle.Pages
             EnemyPokemon = ComputerPokemons[index];
         }
 
+        /// <summary>
+        /// Updates the image source of the pokemon image displays
+        /// </summary>
         public void UpdatePokemonImages()
         {
             MyPokemonImage.Source = MyPokemon.ImageBack;
             EnemyPokemonImage.Source = EnemyPokemon.ImageFront;
         }
 
+        /// <summary>
+        /// Updates the info displays of the pokemon
+        /// </summary>
+        /// <param name="Selected">The pokemon for which to update</param>
+        /// <param name="isEnemy">If the pokemon is the enemy or not</param>
         public void UpdateDataContext(Pokemon Selected, bool isEnemy)
         {
             if (isEnemy)

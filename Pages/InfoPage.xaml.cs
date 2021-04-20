@@ -22,6 +22,11 @@ namespace PokeBattle.Pages
             Copyright.Text = copyright;
         }
 
+        /// <summary>
+        /// Starts a new browser process which navigates to to the url of the sender
+        /// </summary>
+        /// <param name="sender">The link that called the method</param>
+        /// <param name="e">Event arguments</param>
         private void NavigateToWeb(object sender, RequestNavigateEventArgs e)
         {
             try

@@ -10,21 +10,21 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
         public string Name { get; set; }
 
         public EnergyType Type { get; set; }
-        
-        public int MaxPP { get; set; }
-
-        public int RemainingPP { get; set; }
 
         public int Priority { get; set; }
 
+        /// <summary>
+        /// Creates a new Attack with no additional data
+        /// </summary>
         public Attack() { }
 
-        public Attack(string name, EnergyType type, int maxpp, int priority = 1)
+        /// <summary>
+        /// Creates a new Attack with all required data
+        /// </summary>
+        public Attack(string name, EnergyType type, int priority = 1)
         {
             Name = name;
             Type = type;
-            MaxPP = maxpp;
-            RemainingPP = MaxPP;
             Priority = priority;
         }
     }
@@ -33,14 +33,18 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
     {
         public int Damage { get; set; }
 
+        /// <summary>
+        /// Creates a new DamageAttack with no additional data
+        /// </summary>
         public DamageAttack() { }
 
-        public DamageAttack(string name, EnergyType type, int maxpp, int damage, int priority = 1)
+        /// <summary>
+        /// Creates a new DamageAttack with all required data
+        /// </summary>
+        public DamageAttack(string name, EnergyType type, int damage, int priority = 1)
         {
             Name = name;
             Type = type;
-            MaxPP = maxpp;
-            RemainingPP = MaxPP;
             Damage = damage;
             Priority = priority;
         }
@@ -53,15 +57,19 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
         public int AfflictionValue { get; set; }
 
         public bool Self { get; set; }
-        
+
+        /// <summary>
+        /// Creates a new StatusAttack with no additional data
+        /// </summary>
         public StatusAttack() { }
 
-        public StatusAttack(string name, EnergyType type, int maxpp, string statusname, int statusaffliction, bool self = false, int priority = 1)
+        /// <summary>
+        /// Creates a new StatusAttack with all required data
+        /// </summary>
+        public StatusAttack(string name, EnergyType type, string statusname, int statusaffliction, bool self = false, int priority = 1)
         {
             Name = name;
             Type = type;
-            MaxPP = maxpp;
-            RemainingPP = MaxPP;
             AfflictingStatus = statusname;
             AfflictionValue = statusaffliction;
             Self = self;
@@ -79,14 +87,18 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
 
         public int EffectDamage { get; set; } = 0;
 
+        /// <summary>
+        /// Creates a new EffectAttack with no additional data
+        /// </summary>
         public EffectAttack() { }
 
-        public EffectAttack(string name, EnergyType type, int maxpp, string effectname, int mineffectduration, int maxeffectduration, int effectdamage = 0, int priority = 1)
+        /// <summary>
+        /// Creates a new EffectAttack with all required data
+        /// </summary>
+        public EffectAttack(string name, EnergyType type, string effectname, int mineffectduration, int maxeffectduration, int effectdamage = 0, int priority = 1)
         {
             Name = name;
             Type = type;
-            MaxPP = maxpp;
-            RemainingPP = MaxPP;
             EffectName = effectname;
             MinEffectDuration = mineffectduration;
             MaxEffectDuration = maxeffectduration;

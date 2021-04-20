@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "dB4DmbHtCdXSNkANYWUVODVLKGXWCveU4Zt4V5DWbijian4d9NqjUjSKYljTicz/F4IcM091TxZxx7YxvgIbTA==",
+  "dgSpecHash": "q3z5njRjx4qvZo/3BjiTHtn8MORq4ThkUKUpPbUpUx4cv4Nc/yE7LCWcENRGfLv6DsqMkQmFcD25YQCyr39i3g==",
   "success": true,
   "projectFilePath": "D:\\Code\\Ampps\\www\\PokeBattleWPF\\PokeBattle\\PokeBattle.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\jerem\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.13\\microsoft.netcore.app.host.win-x64.3.1.13.nupkg.sha512"
+  ],
   "logs": []
 }

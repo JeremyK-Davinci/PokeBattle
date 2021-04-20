@@ -40,8 +40,14 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
 
         public bool Fainted { get; set; }
 
+        /// <summary>
+        /// Creates a new pokemon with no additional data
+        /// </summary>
         public Pokemon() { }
 
+        /// <summary>
+        /// Creates a pokemon with all required data
+        /// </summary>
         public Pokemon(string name, EnergyType type, int basehp, List<Stat> stats, List<Attack> attacks, int level = 5, int experience = 0, string nickname = "", ExperienceGroup expgroup = ExperienceGroup.Medium_Slow)
         {
             Name = name;
@@ -69,6 +75,10 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
             CurrentStats = Stats;
         }
 
+        /// <summary>
+        /// Calculates the hp of the pokemon depending on level and baseHP
+        /// </summary>
+        /// <returns>Pokemons HP</returns>
         public int CalculateHP()
         {
             Random rand = new Random();
@@ -82,6 +92,9 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
             return value;
         }
 
+        /// <summary>
+        /// Updates the stats of the pokemon depending on level and base stats
+        /// </summary>
         public void CalculateStats()
         {
             Random rand = new Random();
@@ -97,6 +110,10 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
             }
         }
 
+        /// <summary>
+        /// Calculate the exp required to level up depending on level and experience group (currently not functional)
+        /// </summary>
+        /// <returns>Exp required to level up</returns>
         public int CalculateExpToNextLevel()
         {
             int value = -1;
@@ -125,6 +142,10 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
             return value;
         }
 
+        /// <summary>
+        /// Calcultes exp required to next level for experience group erratic
+        /// </summary>
+        /// <returns>Exp required to level up for exp group erratic</returns>
         private int CalculateExpToNextLevelErratic()
         {
             if (Level < 50)
@@ -137,6 +158,10 @@ namespace PokeBattle.Utilities.DataObjects.Pokemon
                 return (int)Math.Floor(Math.Pow(Level, 3) * (160 - Level) / 100);
         }
 
+        /// <summary>
+        /// Calcultes exp required to next level for experience group fluctuating
+        /// </summary>
+        /// <returns>Exp required to level up for exp group fluctuating</returns>
         private int CalculateExpToNextLevelFluctuating()
         {
             if (Level < 15)

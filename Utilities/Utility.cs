@@ -47,6 +47,10 @@ namespace PokeBattle.Utilities
 
         #endregion
 
+        /// <summary>
+        /// Create the energytypes
+        /// </summary>
+        /// <returns>A list of energytypes</returns>
         private static List<EnergyType> CreateEnergyTypes()
         {
             var energyTypes = new List<EnergyType>();
@@ -108,6 +112,9 @@ namespace PokeBattle.Utilities
             return energyTypes;
         }
 
+        /// <summary>
+        /// Separates the energytypes list info it's allocated variables for easier use
+        /// </summary>
         private static void UpdateEnergyTypeVariables()
         {
             if (EnergyTypes == null || EnergyTypes.Count <= 0)
@@ -133,6 +140,10 @@ namespace PokeBattle.Utilities
              Fairy = EnergyTypes.Where(x => x.Name == "Fairy").First();
     }
 
+        /// <summary>
+        /// Create a collection of pokemon for the user
+        /// </summary>
+        /// <returns>A collection of pokemon</returns>
         private static ObservableCollection<Pokemon> CreateStarterPokemon()
         {
             UpdateEnergyTypeVariables();
@@ -232,6 +243,10 @@ namespace PokeBattle.Utilities
             return pokemons;
         }
 
+        /// <summary>
+        /// Create a collection of pokemon for the computer
+        /// </summary>
+        /// <returns>A collection of pokemon</returns>
         private static ObservableCollection<Pokemon> CreateGamePokemon()
         {
             if (UserPokemon == null || UserPokemon.Count <= 0)
@@ -253,6 +268,10 @@ namespace PokeBattle.Utilities
             return pokemons;
         }
 
+        /// <summary>
+        /// Creata a collection of credits about the used icons
+        /// </summary>
+        /// <returns>A collection of credits</returns>
         private static ObservableCollection<Credit> CreateIconCredits()
         {
             var credits = new ObservableCollection<Credit>();
@@ -264,6 +283,10 @@ namespace PokeBattle.Utilities
             return credits;
         }
 
+        /// <summary>
+        /// Creates a collection of credits about the Design
+        /// </summary>
+        /// <returns>A collection of credits</returns>
         private static ObservableCollection<Credit> CreateDesignCredits()
         {
             var credits = new ObservableCollection<Credit>();
@@ -276,6 +299,10 @@ namespace PokeBattle.Utilities
             return credits;
         }
 
+        /// <summary>
+        /// Creats a collection of credits about the development
+        /// </summary>
+        /// <returns>A collection of credits</returns>
         private static ObservableCollection<Credit> CreateDevCredits()
         {
             var credits = new ObservableCollection<Credit>();
@@ -295,8 +322,16 @@ namespace PokeBattle.Utilities
         /// </summary>
         public static List<T> ToListItem<T>(T[] values) => new List<T>(values);
 
+        /// <summary>
+        /// Gets a useable bitmapimage from a url
+        /// </summary>
+        /// <param name="uri">The url to the image</param>
+        /// <returns>A bitmapImage</returns>
         public static BitmapImage GetImageFromUri(string uri) => new BitmapImage(new Uri(uri, UriKind.Absolute));
 
+        /// <summary>
+        /// Resets the pokemons hp and stats for replay
+        /// </summary>
         public static void ResetPokemon()
         {
             foreach (Pokemon p in UserPokemon)
